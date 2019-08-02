@@ -3,8 +3,8 @@
 
     <data>
         <variable
-                name="list"
-                type="com.dot.baseandroid.menu.list.viewmodels.FragmentListViewModel"/>
+                name="gallery"
+                type="com.dot.baseandroid.menu.gallery.viewmodels.FragmentGalleryViewModel"/>
     </data>
 
     <RelativeLayout

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
@@ -14,6 +15,7 @@
                 android:theme="@style/AppTheme.AppBarOverlay">
 
             <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbarMain"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize">
 
@@ -21,13 +23,24 @@
                         android:id="@+id/textViewTitleToolbarMain"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/app_name"
+                        android:text=""
                         android:textSize="16sp"
                         android:textStyle="bold"/>
 
             </androidx.appcompat.widget.Toolbar>
 
         </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- fragment -->
+        <fragment
+                android:id="@+id/fragmentContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:navGraph="@navigation/app_navigation"
+                app:defaultNavHost="true"
+                tools:layout="@layout/fragment_list"/>
 
         <!-- bottom menu -->
         <com.google.android.material.bottomnavigation.BottomNavigationView

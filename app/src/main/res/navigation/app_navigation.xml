@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/app_navigation"
+        app:startDestination="@id/fragmentOne">
+
+    <!-- fragment list -->
+    <fragment
+            android:id="@+id/fragmentOne"
+            android:label="@string/one"
+            android:name="com.dot.baseandroid.menu.list.views.FragmentList"
+            tools:layout="@layout/fragment_list">
+
+    </fragment>
+
+    <!-- fragment gallery -->
+    <fragment
+            android:id="@+id/fragmentTwo"
+            android:label="@string/two"
+            android:name="com.dot.baseandroid.menu.gallery.views.FragmentGallery"
+            tools:layout="@layout/fragment_gallery">
+
+    </fragment>
+
+    <!-- fragment notification -->
+    <fragment
+            android:id="@+id/fragmentThree"
+            android:label="@string/three"
+            android:name="com.dot.baseandroid.menu.notification.views.FragmentNotification"
+            tools:layout="@layout/fragment_notification">
+
+    </fragment>
+
+</navigation>

@@ -17,17 +17,7 @@
             <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbarMain"
                     android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize">
-
-                <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/textViewTitleToolbarMain"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:textSize="16sp"
-                        android:textStyle="bold"/>
-
-            </androidx.appcompat.widget.Toolbar>
+                    android:layout_height="?attr/actionBarSize"/>
 
         </com.google.android.material.appbar.AppBarLayout>
 

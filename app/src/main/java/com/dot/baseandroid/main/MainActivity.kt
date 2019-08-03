@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupToolbar() {
         setSupportActionBar(binding.toolbarMain)
-        //supportActionBar?.setDisplayShowTitleEnabled(false)
     }
 
     private fun setupNavigation() {

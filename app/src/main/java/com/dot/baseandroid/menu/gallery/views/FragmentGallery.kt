@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.dot.baseandroid.R
 import com.dot.baseandroid.databinding.FragmentGalleryBinding
 import com.dot.baseandroid.menu.gallery.viewmodels.FragmentGalleryViewModel
@@ -22,8 +24,21 @@ class FragmentGallery: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = FragmentGalleryViewModel(activity?.application!!)
+        viewModel = ViewModelProviders.of(this).get(FragmentGalleryViewModel::class.java)
         binding.gallery = viewModel
+
+        observeData()
+
+        viewModel.getListGallery(context!!)
+    }
+
+    private fun observeData() {
+        viewModel.isLoading.observe(this, Observer {
+
+        })
+        viewModel.liveDataListGallery.observe(this, Observer {
+
+        })
     }
 
 }

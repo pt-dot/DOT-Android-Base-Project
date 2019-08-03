@@ -16,9 +16,11 @@ class Network(private val coroutineScope: CoroutineScope) {
                 val result = response()
                if (result.isSuccessful) {
                    logDebug("Network # isSuccessful")
+                   logDebug("Network # url API : ${result.raw().request().url()}")
                    onSuccess(result.body())
                } else {
                    logError("Network # UnSuccessFul")
+                   logError("Network # url API : ${result.raw().request().url()}")
                    logError("Network # code : ${result.code()}")
                    logError("Network # body : ${result.errorBody()?.string()}")
                    context.showToast("UnSuccessFul # code : ${result.code()}")

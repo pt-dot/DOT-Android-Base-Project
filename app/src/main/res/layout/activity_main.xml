@@ -37,6 +37,7 @@
                 android:id="@+id/bottomNavigationViewMain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="?android:colorBackground"
                 android:layout_gravity="bottom"
                 app:labelVisibilityMode="labeled"
                 app:menu="@menu/menu_main"/>

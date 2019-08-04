@@ -10,8 +10,9 @@ import com.dot.baseandroid.R
 import com.dot.baseandroid.databinding.ItemGalleryBinding
 import com.dot.baseandroid.menu.gallery.models.GalleryModel
 import com.dot.baseandroid.menu.gallery.viewmodels.ItemGalleryViewModel
+import com.dot.baseandroid.utils.AdapterCallback
 
-class GalleryAdapter(val onClick:(GalleryModel) -> Unit): ListAdapter<GalleryModel, GalleryAdapter.GalleryViewHolder> (DiffCallback) {
+class GalleryAdapter(val onClick:(GalleryModel) -> Unit): ListAdapter<GalleryModel, GalleryAdapter.GalleryViewHolder> (AdapterCallback.DiffGalleryCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GalleryViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -24,16 +25,6 @@ class GalleryAdapter(val onClick:(GalleryModel) -> Unit): ListAdapter<GalleryMod
         holder.bindData(galleryModel)
         holder.itemView.setOnClickListener {
             onClick(galleryModel)
-        }
-    }
-
-    companion object DiffCallback: DiffUtil.ItemCallback<GalleryModel>() {
-        override fun areContentsTheSame(oldItem: GalleryModel, newItem: GalleryModel): Boolean {
-            return oldItem == newItem
-        }
-
-        override fun areItemsTheSame(oldItem: GalleryModel, newItem: GalleryModel): Boolean {
-            return oldItem.caption == newItem.caption
         }
     }
 

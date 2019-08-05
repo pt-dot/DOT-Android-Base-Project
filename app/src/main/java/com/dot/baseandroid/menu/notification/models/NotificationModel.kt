@@ -7,5 +7,6 @@ import kotlinx.android.parcel.Parcelize
 @Keep
 @Parcelize
 data class NotificationModel(
+    val idNotification: Int,
     val message: String
 ): Parcelable

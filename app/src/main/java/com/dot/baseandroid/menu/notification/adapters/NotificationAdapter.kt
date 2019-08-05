@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dot.baseandroid.R
 import com.dot.baseandroid.databinding.ItemNotificationBinding
 import com.dot.baseandroid.menu.notification.models.NotificationModel
+import com.dot.baseandroid.menu.notification.viewmodels.ItemNotificationViewModel
 import com.dot.baseandroid.utils.AdapterCallback
 
 class NotificationAdapter: PagedListAdapter<NotificationModel, RecyclerView.ViewHolder>(AdapterCallback.DiffNotificationCallback) {
@@ -34,13 +35,20 @@ class NotificationAdapter: PagedListAdapter<NotificationModel, RecyclerView.View
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-
+        if (holder is NotificationViewHolder) {
+            val notificationModel = getItem(holder.adapterPosition)
+            holder.bindData(notificationModel!!)
+        }
     }
 
     class NotificationViewHolder(val binding: ItemNotificationBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bindData(notificationModel: NotificationModel) {
 
+        fun bindData(notificationModel: NotificationModel) {
+            val viewModel = ItemNotificationViewModel(notificationModel)
+            binding.itemNotification = viewModel
+            binding.executePendingBindings()
         }
+
     }
 
     class LoadMoreViewHolder(view: View): RecyclerView.ViewHolder(view)

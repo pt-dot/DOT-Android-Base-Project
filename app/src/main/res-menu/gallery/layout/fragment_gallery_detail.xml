@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="listDetail"
-                  type="com.dot.baseandroid.menu.list.viewmodels.FragmentListDetailViewModel"/>
+        <variable name="galleryDetail"
+                  type="com.dot.baseandroid.menu.gallery.viewmodels.FragmentGalleryDetailViewModel"/>
     </data>
 
     <LinearLayout
@@ -18,7 +17,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/global_detail_image_height"
                 android:scaleType="centerCrop"
-                app:setImageUrl="@{listDetail.imageUrl}"
+                app:setImageUrl="@{galleryDetail.imageUrl}"
                 tools:srcCompat="@tools:sample/backgrounds/scenic"/>
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -27,18 +26,8 @@
                 android:layout_marginTop="@dimen/item_recycler_view_margin"
                 android:layout_marginLeft="@dimen/item_recycler_view_margin"
                 android:layout_marginRight="@dimen/item_recycler_view_margin"
-                android:textSize="@dimen/text_view_title_item_list_size"
-                android:textStyle="bold"
-                android:text="@{listDetail.name}"
-                tools:text="@tools:sample/cities"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/item_recycler_view_margin"
-                android:layout_marginRight="@dimen/item_recycler_view_margin"
                 android:textSize="@dimen/_12ssp"
-                android:text="@{listDetail.description}"
+                android:text="@{galleryDetail.caption}"
                 tools:text="@tools:sample/lorem/random"/>
 
     </LinearLayout>

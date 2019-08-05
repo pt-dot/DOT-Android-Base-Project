@@ -8,10 +8,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.dot.baseandroid.R
 import com.dot.baseandroid.databinding.FragmentGalleryBinding
 import com.dot.baseandroid.menu.gallery.adapters.GalleryAdapter
+import com.dot.baseandroid.menu.gallery.models.GalleryModel
 import com.dot.baseandroid.menu.gallery.viewmodels.FragmentGalleryViewModel
 
 class FragmentGallery: Fragment() {
@@ -56,9 +58,15 @@ class FragmentGallery: Fragment() {
     private fun setupRecyclerView() {
         binding.recyclerViewListGallery.layoutManager = GridLayoutManager(context, 3)
         adapter = GalleryAdapter {
-
+            onItemClick(it)
         }
         binding.recyclerViewListGallery.adapter = adapter
+    }
+
+    private fun onItemClick(galleryModel: GalleryModel) {
+        val action = FragmentGalleryDirections.actionToTwoDetail()
+        action.dataDetailGallery = galleryModel
+        findNavController().navigate(action)
     }
 
 }

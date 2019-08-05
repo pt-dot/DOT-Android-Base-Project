@@ -3,4 +3,6 @@
     <integer name="global_text_shadow_dx">1</integer>
     <integer name="global_text_shadow_dy">1</integer>
     <integer name="global_text_shadow_radius">2</integer>
+
+    <dimen name="global_detail_image_height">@dimen/_200sdp</dimen>
 </resources>

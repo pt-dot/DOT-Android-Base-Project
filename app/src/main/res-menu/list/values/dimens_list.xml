@@ -3,5 +3,5 @@
     <dimen name="image_view_list_size">@dimen/_150sdp</dimen>
     <dimen name="text_view_title_item_list_size">@dimen/_16ssp</dimen>
     <dimen name="text_view_sub_title_item_list_size">@dimen/_14ssp</dimen>
-    <dimen name="item_recycler_view_padding">@dimen/_8sdp</dimen>
+    <dimen name="item_recycler_view_margin">@dimen/_8sdp</dimen>
 </resources>

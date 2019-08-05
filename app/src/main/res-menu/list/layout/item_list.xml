@@ -27,9 +27,9 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_alignBottom="@id/imageViewItemList"
-                android:layout_marginBottom="@dimen/item_recycler_view_padding"
-                android:layout_marginStart="@dimen/item_recycler_view_padding"
-                android:layout_marginLeft="@dimen/item_recycler_view_padding">
+                android:layout_marginBottom="@dimen/item_recycler_view_margin"
+                android:layout_marginStart="@dimen/item_recycler_view_margin"
+                android:layout_marginLeft="@dimen/item_recycler_view_margin">
 
             <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"

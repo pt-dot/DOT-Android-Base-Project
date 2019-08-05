@@ -39,8 +39,10 @@ class NotificationAdapter: PagedListAdapter<NotificationModel, RecyclerView.View
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is NotificationViewHolder) {
-            val notificationModel = getItem(holder.adapterPosition)
-            holder.bindData(notificationModel!!)
+            val notificationModel: NotificationModel? = getItem(holder.adapterPosition)
+            notificationModel?.let {
+                holder.bindData(notificationModel)
+            }
         }
     }
 

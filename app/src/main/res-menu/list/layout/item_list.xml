@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -9,43 +10,52 @@
 
     <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/item_recycler_view_padding"
-            android:layout_marginRight="@dimen/item_recycler_view_padding"
-            android:layout_marginBottom="@dimen/item_recycler_view_padding">
+            android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageViewItemList"
-                android:layout_width="@dimen/image_view_list_size"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/image_view_list_size"
                 android:scaleType="centerCrop"
+                app:setImageUrl="@{itemList.imageUrl}"
                 tools:srcCompat="@tools:sample/backgrounds/scenic"/>
 
         <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/imageViewItemList"
-                android:layout_toEndOf="@id/imageViewItemList"
                 android:orientation="vertical"
-                android:layout_centerVertical="true"
+                android:layout_alignBottom="@id/imageViewItemList"
+                android:layout_marginBottom="@dimen/item_recycler_view_padding"
                 android:layout_marginStart="@dimen/item_recycler_view_padding"
                 android:layout_marginLeft="@dimen/item_recycler_view_padding">
 
             <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
                     android:textSize="@dimen/text_view_title_item_list_size"
                     android:textStyle="bold"
+                    android:text="@{itemList.name}"
                     android:maxLines="1"
                     android:ellipsize="end"
+                    android:shadowColor="@color/text_shadow"
+                    android:shadowDx="@integer/global_text_shadow_dx"
+                    android:shadowDy="@integer/global_text_shadow_dy"
+                    android:shadowRadius="@integer/global_text_shadow_radius"
                     tools:text="@tools:sample/lorem"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
                     android:textSize="@dimen/text_view_sub_title_item_list_size"
+                    android:text="@{itemList.location}"
                     android:maxLines="2"
                     android:ellipsize="end"
+                    android:shadowColor="@color/text_shadow"
+                    android:shadowDx="@integer/global_text_shadow_dx"
+                    android:shadowDy="@integer/global_text_shadow_dy"
+                    android:shadowRadius="@integer/global_text_shadow_radius"
                     tools:text="@tools:sample/lorem"/>
 
         </LinearLayout>

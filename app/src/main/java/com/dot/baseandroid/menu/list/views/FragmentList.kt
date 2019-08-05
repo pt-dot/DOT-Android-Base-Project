@@ -8,10 +8,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dot.baseandroid.R
 import com.dot.baseandroid.databinding.FragmentListBinding
 import com.dot.baseandroid.menu.list.adapters.MyListAdapter
+import com.dot.baseandroid.menu.list.models.PlaceModel
 import com.dot.baseandroid.menu.list.viewmodels.FragmentListViewModel
 
 class FragmentList: Fragment() {
@@ -49,7 +51,7 @@ class FragmentList: Fragment() {
         binding.recyclerViewList.layoutManager = layoutManager
 
         adapter = MyListAdapter {
-
+            onItemClick(it)
         }
         binding.recyclerViewList.adapter = adapter
     }
@@ -61,6 +63,12 @@ class FragmentList: Fragment() {
         viewModel.liveDataList.observe(this, Observer {
             adapter.submitList(it)
         })
+    }
+
+    private fun onItemClick(placeModel: PlaceModel) {
+        val action = FragmentListDirections.actionToOneDetail()
+        action.dataDetailListPlace = placeModel
+        findNavController().navigate(action)
     }
 
 }

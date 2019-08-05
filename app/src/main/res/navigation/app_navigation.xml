@@ -13,6 +13,25 @@
             android:name="com.dot.baseandroid.menu.list.views.FragmentList"
             tools:layout="@layout/fragment_list">
 
+        <action android:id="@+id/action_to_one_detail"
+                app:destination="@id/fragmentOneDetail"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"/>
+
+    </fragment>
+
+    <fragment
+            android:id="@+id/fragmentOneDetail"
+            android:label="@string/detail"
+            android:name="com.dot.baseandroid.menu.list.views.FragmentListDetail"
+            tools:layout="@layout/fragment_list_detail">
+
+        <argument
+                android:name="data_detail_list_place"
+                app:argType="com.dot.baseandroid.menu.list.models.PlaceModel"
+                app:nullable="true"
+                android:defaultValue="@null"/>
+
     </fragment>
 
     <!-- fragment gallery -->

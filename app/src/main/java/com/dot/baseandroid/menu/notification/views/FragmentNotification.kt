@@ -1,5 +1,6 @@
 package com.dot.baseandroid.menu.notification.views
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dot.baseandroid.R
 import com.dot.baseandroid.databinding.FragmentNotificationBinding
 import com.dot.baseandroid.menu.notification.adapters.NotificationAdapter
+import com.dot.baseandroid.menu.notification.models.NotificationModel
 import com.dot.baseandroid.menu.notification.viewmodels.FragmentNotificationViewModel
 
 class FragmentNotification: Fragment() {
@@ -44,7 +46,9 @@ class FragmentNotification: Fragment() {
     private fun setupRecyclerView() {
         val layoutManager = LinearLayoutManager(context)
         binding.recyclerViewListNotification.layoutManager = layoutManager
-        adapter = NotificationAdapter()
+        adapter = NotificationAdapter{
+            onItemClicked(it)
+        }
         binding.recyclerViewListNotification.adapter = adapter
     }
 
@@ -55,6 +59,12 @@ class FragmentNotification: Fragment() {
         viewModel.getLoadingState().observe(this, Observer {
 
         })
+    }
+
+    private fun onItemClicked(notificationModel: NotificationModel) {
+        val intent = Intent(context, DetailNotificationActivity::class.java)
+        intent.putExtra(DetailNotificationActivity.EXTRA_DATA_NOTIFICATION, notificationModel)
+        startActivity(intent)
     }
 
 }

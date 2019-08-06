@@ -13,7 +13,7 @@ import com.dot.baseandroid.menu.notification.viewmodels.ItemNotificationViewMode
 import com.dot.baseandroid.utils.AdapterCallback
 import com.dot.baseandroid.utils.LoadingState
 
-class NotificationAdapter: PagedListAdapter<NotificationModel, RecyclerView.ViewHolder>(AdapterCallback.DiffNotificationCallback) {
+class NotificationAdapter(val onClick: (NotificationModel) -> Unit): PagedListAdapter<NotificationModel, RecyclerView.ViewHolder>(AdapterCallback.DiffNotificationCallback) {
 
     companion object {
         const val VIEW_TYPE_ITEM = 1
@@ -42,6 +42,9 @@ class NotificationAdapter: PagedListAdapter<NotificationModel, RecyclerView.View
             val notificationModel: NotificationModel? = getItem(holder.adapterPosition)
             notificationModel?.let {
                 holder.bindData(notificationModel)
+                holder.itemView.setOnClickListener {
+                    onClick(notificationModel)
+                }
             }
         }
     }

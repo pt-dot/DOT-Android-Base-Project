@@ -1,5 +1,6 @@
 package com.dot.baseandroid.menu.gallery.views
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -40,6 +41,11 @@ class FragmentGallery: Fragment() {
         viewModel.getListGallery(context!!)
     }
 
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        activity?.recreate()
+    }
+
     private fun observeData() {
         viewModel.isLoading.observe(this, Observer {
             binding.swipeRefreshListGallery.isRefreshing = it
@@ -56,7 +62,8 @@ class FragmentGallery: Fragment() {
     }
 
     private fun setupRecyclerView() {
-        binding.recyclerViewListGallery.layoutManager = GridLayoutManager(context, 3)
+        val spanCount = context?.resources?.getInteger(R.integer.gallery_span_count)
+        binding.recyclerViewListGallery.layoutManager = GridLayoutManager(context, spanCount!!)
         adapter = GalleryAdapter {
             onItemClick(it)
         }

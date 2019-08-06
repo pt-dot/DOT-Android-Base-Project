@@ -5,4 +5,6 @@
     <integer name="global_text_shadow_radius">2</integer>
 
     <dimen name="global_detail_image_height">@dimen/_200sdp</dimen>
+
+    <integer name="gallery_span_count">3</integer>
 </resources>

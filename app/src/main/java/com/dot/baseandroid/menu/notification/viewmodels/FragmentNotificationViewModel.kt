@@ -19,6 +19,7 @@ class FragmentNotificationViewModel(application: Application) : AndroidViewModel
     init {
         val config = PagedList.Config.Builder()
             .setPageSize(20)
+            .setPrefetchDistance(5)
             .setInitialLoadSizeHint(20)
             .setEnablePlaceholders(false)
             .build()

@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.navArgs
 import com.dot.baseandroid.R
 import com.dot.baseandroid.databinding.FragmentGalleryDetailBinding
+import com.dot.baseandroid.main.MainActivity
 import com.dot.baseandroid.menu.gallery.models.GalleryModel
 import com.dot.baseandroid.menu.gallery.viewmodels.CustomGalleryDetailViewModelFactory
 import com.dot.baseandroid.menu.gallery.viewmodels.FragmentGalleryDetailViewModel
@@ -30,8 +31,14 @@ class FragmentGalleryDetail: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as MainActivity).hideNavigation(true)
         viewModel = ViewModelProviders.of(this, CustomGalleryDetailViewModelFactory(galleryModel!!, activity!!.application)).get(FragmentGalleryDetailViewModel::class.java)
         binding.galleryDetail = viewModel
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        (activity as MainActivity).hideNavigation(false)
     }
 
 }

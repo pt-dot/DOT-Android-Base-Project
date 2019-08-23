@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.dot.baseandroid.R
 import com.dot.baseandroid.databinding.FragmentListDetailBinding
@@ -32,7 +32,7 @@ class FragmentListDetail: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as MainActivity).hideNavigation(true)
-        viewModel = ViewModelProviders.of(this, CustomListDetailViewModelFactory(placeModel!!, activity!!.application)).get(FragmentListDetailViewModel::class.java)
+        viewModel = ViewModelProvider(this, CustomListDetailViewModelFactory(placeModel!!, activity!!.application)).get(FragmentListDetailViewModel::class.java)
         binding.listDetail = viewModel
     }
 

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.dot.baseandroid.R
@@ -31,7 +31,7 @@ class FragmentGallery: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(FragmentGalleryViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(FragmentGalleryViewModel::class.java)
         binding.gallery = viewModel
 
         setupSwipeRefresh()

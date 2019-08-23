@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dot.baseandroid.R
 import com.dot.baseandroid.databinding.FragmentNotificationBinding
@@ -30,7 +31,7 @@ class FragmentNotification: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = FragmentNotificationViewModel(activity?.application!!)
+        viewModel = ViewModelProvider(this).get(FragmentNotificationViewModel(activity?.application!!)::class.java)
         binding.notification = viewModel
 
         setupSwipeRefresh()

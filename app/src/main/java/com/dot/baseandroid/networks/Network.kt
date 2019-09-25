@@ -6,6 +6,7 @@ import com.dot.baseandroid.utils.logError
 import com.dot.baseandroid.utils.showToast
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.CancellationException
 import retrofit2.Response
 
 class Network(private val coroutineScope: CoroutineScope) {
@@ -26,9 +27,14 @@ class Network(private val coroutineScope: CoroutineScope) {
                    context.showToast("UnSuccessFul # code : ${result.code()}")
                }
             } catch (throwable: Throwable) {
-                logError("Network # Throwable")
-                context.showToast("Throwable ${throwable.message})}")
-                throwable.printStackTrace()
+                if (throwable is CancellationException) {
+                    // coroutines has canceled
+                    logError("Network # Throwable ==> job canceled")
+                } else {
+                    logError("Network # Throwable")
+                    context.showToast("Throwable ${throwable.message})}")
+                    throwable.printStackTrace()
+                }
             } finally {
                 logDebug("Network # finally")
                 onFinally(true)

@@ -26,6 +26,7 @@ class FragmentGallery: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_gallery, container, false)
+        binding.lifecycleOwner = this
         return binding.root
     }
 
@@ -47,9 +48,6 @@ class FragmentGallery: Fragment() {
     }
 
     private fun observeData() {
-        viewModel.isLoading.observe(viewLifecycleOwner, Observer {
-            binding.swipeRefreshListGallery.isRefreshing = it
-        })
         viewModel.liveDataListGallery.observe(viewLifecycleOwner, Observer {
             adapter.submitList(it)
         })

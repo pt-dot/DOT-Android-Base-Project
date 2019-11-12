@@ -60,10 +60,10 @@ class FragmentNotification: Fragment() {
     }
 
     private fun observeLiveData() {
-        viewModel.notificationList.observe(this, Observer {
+        viewModel.notificationList.observe(viewLifecycleOwner, Observer {
             adapter.submitList(it)
         })
-        viewModel.getLoadingState().observe(this, Observer {
+        viewModel.getLoadingState().observe(viewLifecycleOwner, Observer {
 
         })
     }

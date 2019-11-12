@@ -47,10 +47,10 @@ class FragmentGallery: Fragment() {
     }
 
     private fun observeData() {
-        viewModel.isLoading.observe(this, Observer {
+        viewModel.isLoading.observe(viewLifecycleOwner, Observer {
             binding.swipeRefreshListGallery.isRefreshing = it
         })
-        viewModel.liveDataListGallery.observe(this, Observer {
+        viewModel.liveDataListGallery.observe(viewLifecycleOwner, Observer {
             adapter.submitList(it)
         })
     }

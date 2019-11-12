@@ -63,10 +63,10 @@ class FragmentList: Fragment() {
     }
 
     private fun observeLiveData() {
-        viewModel.isLoading.observe(this, Observer {
+        viewModel.isLoading.observe(viewLifecycleOwner, Observer {
             binding.swipeRefreshList.isRefreshing = it
         })
-        viewModel.liveDataList.observe(this, Observer {
+        viewModel.liveDataList.observe(viewLifecycleOwner, Observer {
             adapter.submitList(it)
         })
     }

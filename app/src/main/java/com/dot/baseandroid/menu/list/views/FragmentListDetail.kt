@@ -32,7 +32,7 @@ class FragmentListDetail: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as MainActivity).hideNavigation(true)
-        viewModel = ViewModelProvider(this, CustomListDetailViewModelFactory(placeModel!!, activity!!.application)).get(FragmentListDetailViewModel::class.java)
+        viewModel = ViewModelProvider(this, CustomListDetailViewModelFactory(placeModel!!, requireActivity().application)).get(FragmentListDetailViewModel::class.java)
         binding.listDetail = viewModel
     }
 

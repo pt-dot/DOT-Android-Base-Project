@@ -32,7 +32,7 @@ class FragmentGalleryDetail: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as MainActivity).hideNavigation(true)
-        viewModel = ViewModelProvider(this, CustomGalleryDetailViewModelFactory(galleryModel!!, activity!!.application)).get(FragmentGalleryDetailViewModel::class.java)
+        viewModel = ViewModelProvider(this, CustomGalleryDetailViewModelFactory(galleryModel!!, requireActivity().application)).get(FragmentGalleryDetailViewModel::class.java)
         binding.galleryDetail = viewModel
     }
 

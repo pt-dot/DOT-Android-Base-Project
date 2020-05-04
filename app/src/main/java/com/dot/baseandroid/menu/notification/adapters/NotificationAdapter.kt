@@ -3,13 +3,11 @@ package com.dot.baseandroid.menu.notification.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.dot.baseandroid.R
-import com.dot.baseandroid.databinding.ItemNotificationBinding
+import com.dot.baseandroid.menu.notification.adapters.viewholders.NotificationViewHolder
 import com.dot.baseandroid.menu.notification.models.NotificationModel
-import com.dot.baseandroid.menu.notification.viewmodels.ItemNotificationViewModel
 import com.dot.baseandroid.utils.AdapterCallback
 import com.dot.baseandroid.utils.LoadingState
 
@@ -29,8 +27,7 @@ class NotificationAdapter(val onClick: (NotificationModel) -> Unit): PagedListAd
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         if (viewType == VIEW_TYPE_ITEM) {
-            val binding: ItemNotificationBinding = DataBindingUtil.inflate(inflater, R.layout.item_notification, parent, false)
-            return NotificationViewHolder(binding)
+            return NotificationViewHolder.from(parent)
         } else {
             val view = inflater.inflate(R.layout.item_load_more, parent, false)
             return LoadMoreViewHolder(view)
@@ -41,7 +38,7 @@ class NotificationAdapter(val onClick: (NotificationModel) -> Unit): PagedListAd
         if (holder is NotificationViewHolder) {
             val notificationModel: NotificationModel? = getItem(holder.adapterPosition)
             notificationModel?.let {
-                holder.bindData(notificationModel)
+                holder.bind(notificationModel)
                 holder.itemView.setOnClickListener {
                     onClick(notificationModel)
                 }
@@ -59,16 +56,6 @@ class NotificationAdapter(val onClick: (NotificationModel) -> Unit): PagedListAd
 
     fun setLoadingState(loadingState: LoadingState) {
         this.loadingState =  loadingState
-    }
-
-    class NotificationViewHolder(val binding: ItemNotificationBinding) : RecyclerView.ViewHolder(binding.root) {
-
-        fun bindData(notificationModel: NotificationModel) {
-            val viewModel = ItemNotificationViewModel(notificationModel)
-            binding.itemNotification = viewModel
-            binding.executePendingBindings()
-        }
-
     }
 
     class LoadMoreViewHolder(view: View): RecyclerView.ViewHolder(view)

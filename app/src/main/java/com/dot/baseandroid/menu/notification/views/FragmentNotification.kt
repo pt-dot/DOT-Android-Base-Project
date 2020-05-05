@@ -1,7 +1,6 @@
 package com.dot.baseandroid.menu.notification.views
 
 import android.content.Intent
-import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -37,11 +36,6 @@ class FragmentNotification: Fragment() {
         setupSwipeRefresh()
         setupRecyclerView()
         observeLiveData()
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        activity?.recreate()
     }
 
     private fun setupSwipeRefresh() {

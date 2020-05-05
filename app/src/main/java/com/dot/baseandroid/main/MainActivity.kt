@@ -7,6 +7,7 @@ import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.dot.baseandroid.R
@@ -38,7 +39,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupNavigation() {
         binding.bottomNavigationViewMain.itemIconTintList = null
-        val navController = Navigation.findNavController(this, R.id.fragmentContainer)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainer) as NavHostFragment
+        val navController = navHostFragment.navController
         setupActionBarWithNavController(navController)
         NavigationUI.setupWithNavController(binding.bottomNavigationViewMain, navController)
     }

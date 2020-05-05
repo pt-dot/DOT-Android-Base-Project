@@ -1,6 +1,5 @@
 package com.dot.baseandroid.menu.list.views
 
-import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -39,17 +38,12 @@ class FragmentList: Fragment() {
         setupRecyclerView()
         observeLiveData()
 
-        viewModel.getList(context!!)
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        activity?.recreate()
+        viewModel.getList(requireContext())
     }
 
     private fun setupSwipeRefresh() {
         binding.swipeRefreshList.setOnRefreshListener {
-            viewModel.getList(context!!)
+            viewModel.getList(requireContext())
         }
     }
 

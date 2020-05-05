@@ -1,6 +1,5 @@
 package com.dot.baseandroid.menu.gallery.views
 
-import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -39,12 +38,7 @@ class FragmentGallery: Fragment() {
         setupRecyclerView()
         observeData()
 
-        viewModel.getListGallery(context!!)
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        activity?.recreate()
+        viewModel.getListGallery(requireContext())
     }
 
     private fun observeData() {
@@ -55,7 +49,7 @@ class FragmentGallery: Fragment() {
 
     private fun setupSwipeRefresh() {
         binding.swipeRefreshListGallery.setOnRefreshListener {
-            viewModel.getListGallery(context!!)
+            viewModel.getListGallery(requireContext())
         }
     }
 

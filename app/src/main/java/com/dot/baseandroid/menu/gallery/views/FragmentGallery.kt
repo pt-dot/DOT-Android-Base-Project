@@ -6,8 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.dot.baseandroid.R
@@ -19,37 +18,36 @@ import com.dot.baseandroid.menu.gallery.viewmodels.FragmentGalleryViewModel
 class FragmentGallery: Fragment() {
 
     private lateinit var binding: FragmentGalleryBinding
-    private lateinit var viewModel: FragmentGalleryViewModel
+    private val viewModel: FragmentGalleryViewModel by viewModels()
 
     private lateinit var adapter: GalleryAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_gallery, container, false)
         binding.lifecycleOwner = this
+        binding.gallery = viewModel
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(FragmentGalleryViewModel::class.java)
-        binding.gallery = viewModel
 
         setupSwipeRefresh()
         setupRecyclerView()
         observeData()
 
-        viewModel.getListGallery(requireContext())
+        viewModel.getListGallery()
     }
 
     private fun observeData() {
-        viewModel.liveDataListGallery.observe(viewLifecycleOwner, Observer {
+        viewModel.liveDataListGallery.observe(viewLifecycleOwner, {
             adapter.submitList(it)
         })
     }
 
     private fun setupSwipeRefresh() {
         binding.swipeRefreshListGallery.setOnRefreshListener {
-            viewModel.getListGallery(requireContext())
+            viewModel.getListGallery()
         }
     }
 

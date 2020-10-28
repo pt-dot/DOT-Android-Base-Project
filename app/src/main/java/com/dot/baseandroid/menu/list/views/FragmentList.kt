@@ -6,8 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dot.baseandroid.R
@@ -19,31 +18,30 @@ import com.dot.baseandroid.menu.list.viewmodels.FragmentListViewModel
 class FragmentList: Fragment() {
 
     private lateinit var binding: FragmentListBinding
-    private lateinit var viewModel: FragmentListViewModel
+    private val viewModel: FragmentListViewModel by viewModels()
 
     private lateinit var adapter: MyListAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_list, container, false)
         binding.lifecycleOwner = this
+        binding.list = viewModel
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(FragmentListViewModel::class.java)
-        binding.list = viewModel
 
         setupSwipeRefresh()
         setupRecyclerView()
         observeLiveData()
 
-        viewModel.getList(requireContext())
+        viewModel.getList()
     }
 
     private fun setupSwipeRefresh() {
         binding.swipeRefreshList.setOnRefreshListener {
-            viewModel.getList(requireContext())
+            viewModel.getList()
         }
     }
 
@@ -58,7 +56,7 @@ class FragmentList: Fragment() {
     }
 
     private fun observeLiveData() {
-        viewModel.liveDataList.observe(viewLifecycleOwner, Observer {
+        viewModel.liveDataList.observe(viewLifecycleOwner, {
             adapter.submitList(it)
         })
     }

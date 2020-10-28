@@ -69,6 +69,18 @@
             android:name="com.dot.baseandroid.menu.notification.views.FragmentNotification"
             tools:layout="@layout/fragment_notification">
 
+        <action android:id="@+id/action_to_notification_detail"
+            app:destination="@+id/activityNotificationDetail"/>
+
     </fragment>
+
+    <activity android:id="@+id/activityNotificationDetail"
+            android:name="com.dot.baseandroid.menu.notification.views.DetailNotificationActivity"
+            tools:layout="@layout/activity_notification_detail">
+
+        <argument android:name="data_detail_notification"
+            app:argType="com.dot.baseandroid.menu.notification.models.NotificationModel"/>
+
+    </activity>
 
 </navigation>

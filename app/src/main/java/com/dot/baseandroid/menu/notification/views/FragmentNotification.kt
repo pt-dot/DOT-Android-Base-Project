@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.fragment.app.viewModels
 import com.dot.baseandroid.R
 import com.dot.baseandroid.databinding.FragmentNotificationBinding
 import com.dot.baseandroid.menu.notification.adapters.NotificationAdapter
@@ -19,19 +17,19 @@ import com.dot.baseandroid.menu.notification.viewmodels.FragmentNotificationView
 class FragmentNotification: Fragment() {
 
     private lateinit var binding: FragmentNotificationBinding
-    private lateinit var viewModel: FragmentNotificationViewModel
+    private val viewModel: FragmentNotificationViewModel by viewModels()
 
     private lateinit var adapter: NotificationAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_notification, container, false)
+        binding.lifecycleOwner = this
+        binding.notification = viewModel
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(FragmentNotificationViewModel(activity?.application!!)::class.java)
-        binding.notification = viewModel
 
         setupSwipeRefresh()
         setupRecyclerView()
@@ -45,8 +43,6 @@ class FragmentNotification: Fragment() {
     }
 
     private fun setupRecyclerView() {
-        val layoutManager = LinearLayoutManager(context)
-        binding.recyclerViewListNotification.layoutManager = layoutManager
         adapter = NotificationAdapter{
             onItemClicked(it)
         }
@@ -54,10 +50,10 @@ class FragmentNotification: Fragment() {
     }
 
     private fun observeLiveData() {
-        viewModel.notificationList.observe(viewLifecycleOwner, Observer {
+        viewModel.notificationList.observe(viewLifecycleOwner, {
             adapter.submitList(it)
         })
-        viewModel.getLoadingState().observe(viewLifecycleOwner, Observer {
+        viewModel.getLoadingState().observe(viewLifecycleOwner, {
 
         })
     }

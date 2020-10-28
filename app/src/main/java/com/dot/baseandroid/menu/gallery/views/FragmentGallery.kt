@@ -8,7 +8,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import com.dot.baseandroid.R
 import com.dot.baseandroid.databinding.FragmentGalleryBinding
 import com.dot.baseandroid.menu.gallery.adapters.GalleryAdapter
@@ -52,8 +51,6 @@ class FragmentGallery: Fragment() {
     }
 
     private fun setupRecyclerView() {
-        val spanCount = context?.resources?.getInteger(R.integer.gallery_span_count)
-        binding.recyclerViewListGallery.layoutManager = GridLayoutManager(context, spanCount!!)
         adapter = GalleryAdapter {
             onItemClick(it)
         }

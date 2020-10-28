@@ -8,7 +8,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.dot.baseandroid.R
 import com.dot.baseandroid.databinding.FragmentListBinding
 import com.dot.baseandroid.menu.list.adapters.MyListAdapter
@@ -46,9 +45,6 @@ class FragmentList: Fragment() {
     }
 
     private fun setupRecyclerView() {
-        val layoutManager = LinearLayoutManager(context)
-        binding.recyclerViewList.layoutManager = layoutManager
-
         adapter = MyListAdapter {
             onItemClick(it)
         }

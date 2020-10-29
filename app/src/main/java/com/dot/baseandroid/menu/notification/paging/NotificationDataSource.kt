@@ -11,7 +11,7 @@ import com.dot.baseandroid.utils.logDebug
 class NotificationDataSource: PageKeyedDataSource<Int, NotificationModel>() {
 
     var state: MutableLiveData<LoadingState> = MutableLiveData()
-    var listNotification: MutableList<NotificationModel> = mutableListOf()
+    private var listNotification: MutableList<NotificationModel> = mutableListOf()
 
     override fun loadInitial(params: LoadInitialParams<Int>, callback: LoadInitialCallback<Int, NotificationModel>) {
         logDebug("NotificationDataSource # loadInitial ${params.requestedLoadSize}")

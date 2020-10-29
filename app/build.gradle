@@ -93,5 +93,5 @@ dependencies {
     implementation "com.intuit.ssp:ssp-android:$sspVersion"
     implementation "com.intuit.sdp:sdp-android:$sdpVersion"
 
-    implementation "androidx.paging:paging-runtime:$pagingVersion"
+    implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
 }

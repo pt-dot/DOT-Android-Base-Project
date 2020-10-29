@@ -1,4 +1,4 @@
-## DOT Base Project for Android 1.0.3 ##
+## DOT Base Project for Android 1.0.4 ##
 
 - Build with Kotlin, Use MVVM Pattern
 - Use Kotlin Coroutines

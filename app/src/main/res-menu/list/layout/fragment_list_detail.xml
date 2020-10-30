@@ -37,8 +37,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/item_recycler_view_margin"
                 android:layout_marginRight="@dimen/item_recycler_view_margin"
-                android:textSize="@dimen/_12ssp"
                 android:text="@{listDetail.description}"
+                android:theme="@style/Caption"
                 tools:text="@tools:sample/lorem/random"/>
 
     </LinearLayout>

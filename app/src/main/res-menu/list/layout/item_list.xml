@@ -24,13 +24,12 @@
                 tools:srcCompat="@tools:sample/backgrounds/scenic"/>
 
         <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_alignBottom="@id/imageViewItemList"
                 android:layout_marginBottom="@dimen/item_recycler_view_margin"
-                android:layout_marginStart="@dimen/item_recycler_view_margin"
-                android:layout_marginLeft="@dimen/item_recycler_view_margin">
+                android:layout_marginHorizontal="@dimen/item_recycler_view_margin">
 
             <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
@@ -41,10 +40,7 @@
                     android:text="@{itemList.name}"
                     android:maxLines="1"
                     android:ellipsize="end"
-                    android:shadowColor="@color/text_shadow"
-                    android:shadowDx="@integer/global_text_shadow_dx"
-                    android:shadowDy="@integer/global_text_shadow_dy"
-                    android:shadowRadius="@integer/global_text_shadow_radius"
+                    android:theme="@style/Title"
                     tools:text="@tools:sample/lorem"/>
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -55,10 +51,7 @@
                     android:text="@{itemList.location}"
                     android:maxLines="2"
                     android:ellipsize="end"
-                    android:shadowColor="@color/text_shadow"
-                    android:shadowDx="@integer/global_text_shadow_dx"
-                    android:shadowDy="@integer/global_text_shadow_dy"
-                    android:shadowRadius="@integer/global_text_shadow_radius"
+                    android:theme="@style/Title"
                     tools:text="@tools:sample/lorem"/>
 
         </LinearLayout>

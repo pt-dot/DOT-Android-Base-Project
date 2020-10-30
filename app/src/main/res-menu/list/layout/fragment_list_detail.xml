@@ -25,8 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/item_recycler_view_margin"
-                android:layout_marginLeft="@dimen/item_recycler_view_margin"
-                android:layout_marginRight="@dimen/item_recycler_view_margin"
+                android:layout_marginHorizontal="@dimen/item_recycler_view_margin"
                 android:textSize="@dimen/text_view_title_item_list_size"
                 android:textStyle="bold"
                 android:text="@{listDetail.name}"
@@ -35,11 +34,10 @@
         <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/item_recycler_view_margin"
-                android:layout_marginRight="@dimen/item_recycler_view_margin"
+                android:layout_marginHorizontal="@dimen/item_recycler_view_margin"
                 android:text="@{listDetail.description}"
                 android:theme="@style/Caption"
-                tools:text="@tools:sample/lorem/random"/>
+                tools:text="@tools:sample/lorem"/>
 
     </LinearLayout>
 

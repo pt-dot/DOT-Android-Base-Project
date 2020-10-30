@@ -24,11 +24,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/item_recycler_view_margin"
-                android:layout_marginLeft="@dimen/item_recycler_view_margin"
-                android:layout_marginRight="@dimen/item_recycler_view_margin"
+                android:layout_marginHorizontal="@dimen/item_recycler_view_margin"
                 android:text="@{galleryDetail.caption}"
                 android:theme="@style/Caption"
-                tools:text="@tools:sample/lorem/random"/>
+                tools:text="@tools:sample/lorem"/>
 
     </LinearLayout>
 

@@ -11,14 +11,14 @@ import androidx.navigation.fragment.navArgs
 import com.dot.baseandroid.R
 import com.dot.baseandroid.databinding.FragmentGalleryDetailBinding
 import com.dot.baseandroid.main.MainActivity
-import com.dot.baseandroid.menu.gallery.viewmodels.FragmentGalleryDetailViewModel
+import com.dot.baseandroid.menu.gallery.viewmodels.GalleryDetailViewModel
 import com.dot.baseandroid.utils.ViewModelFragmentFactory
 
 class FragmentGalleryDetail: Fragment() {
 
     private val args: FragmentGalleryDetailArgs by navArgs()
     private lateinit var binding: FragmentGalleryDetailBinding
-    private val viewModel: FragmentGalleryDetailViewModel by viewModels { ViewModelFragmentFactory(args.dataDetailGallery as Any) }
+    private val viewModel: GalleryDetailViewModel by viewModels { ViewModelFragmentFactory(args.dataDetailGallery as Any) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_gallery_detail, container, false)

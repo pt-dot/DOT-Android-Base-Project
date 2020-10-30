@@ -6,7 +6,7 @@
     <data>
         <variable
                 name="notification"
-                type="com.dot.baseandroid.menu.notification.viewmodels.FragmentNotificationViewModel"/>
+                type="com.dot.baseandroid.menu.notification.viewmodels.NotificationViewModel"/>
     </data>
 
     <RelativeLayout

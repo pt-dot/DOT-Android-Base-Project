@@ -6,7 +6,7 @@
     <data>
         <variable
                 name="gallery"
-                type="com.dot.baseandroid.menu.gallery.viewmodels.FragmentGalleryViewModel"/>
+                type="com.dot.baseandroid.menu.gallery.viewmodels.GalleryViewModel"/>
     </data>
 
     <RelativeLayout

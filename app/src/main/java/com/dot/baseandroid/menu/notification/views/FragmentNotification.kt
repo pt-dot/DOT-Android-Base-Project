@@ -12,12 +12,12 @@ import com.dot.baseandroid.R
 import com.dot.baseandroid.databinding.FragmentNotificationBinding
 import com.dot.baseandroid.menu.notification.adapters.NotificationAdapter
 import com.dot.baseandroid.menu.notification.models.NotificationModel
-import com.dot.baseandroid.menu.notification.viewmodels.FragmentNotificationViewModel
+import com.dot.baseandroid.menu.notification.viewmodels.NotificationViewModel
 
 class FragmentNotification: Fragment() {
 
     private lateinit var binding: FragmentNotificationBinding
-    private val viewModel: FragmentNotificationViewModel by viewModels()
+    private val viewModel: NotificationViewModel by viewModels()
 
     private lateinit var adapter: NotificationAdapter
 

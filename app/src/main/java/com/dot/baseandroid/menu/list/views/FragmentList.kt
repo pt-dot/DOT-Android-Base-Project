@@ -12,12 +12,12 @@ import com.dot.baseandroid.R
 import com.dot.baseandroid.databinding.FragmentListBinding
 import com.dot.baseandroid.menu.list.adapters.MyListAdapter
 import com.dot.baseandroid.menu.list.models.PlaceModel
-import com.dot.baseandroid.menu.list.viewmodels.FragmentListViewModel
+import com.dot.baseandroid.menu.list.viewmodels.ListViewModel
 
 class FragmentList: Fragment() {
 
     private lateinit var binding: FragmentListBinding
-    private val viewModel: FragmentListViewModel by viewModels()
+    private val viewModel: ListViewModel by viewModels()
 
     private lateinit var adapter: MyListAdapter
 

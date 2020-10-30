@@ -11,14 +11,14 @@ import androidx.navigation.fragment.navArgs
 import com.dot.baseandroid.R
 import com.dot.baseandroid.databinding.FragmentListDetailBinding
 import com.dot.baseandroid.main.MainActivity
-import com.dot.baseandroid.menu.list.viewmodels.FragmentListDetailViewModel
+import com.dot.baseandroid.menu.list.viewmodels.ListDetailViewModel
 import com.dot.baseandroid.utils.ViewModelFragmentFactory
 
 class FragmentListDetail: Fragment() {
 
     private val args: FragmentListDetailArgs by navArgs()
     private lateinit var binding: FragmentListDetailBinding
-    private val viewModel: FragmentListDetailViewModel by viewModels { ViewModelFragmentFactory(args.dataDetailListPlace as Any) }
+    private val viewModel: ListDetailViewModel by viewModels { ViewModelFragmentFactory(args.dataDetailListPlace as Any) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_list_detail, container, false)

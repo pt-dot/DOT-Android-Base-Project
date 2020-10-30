@@ -10,7 +10,7 @@ import com.dot.baseandroid.menu.notification.paging.NotificationDataSource
 import com.dot.baseandroid.menu.notification.paging.NotificationDataSourceFactory
 import com.dot.baseandroid.utils.LoadingState
 
-class FragmentNotificationViewModel: ViewModel() {
+class NotificationViewModel: ViewModel() {
 
     private var notificationDataSourceFactory: NotificationDataSourceFactory = NotificationDataSourceFactory()
     var notificationList: LiveData<PagedList<NotificationModel>>

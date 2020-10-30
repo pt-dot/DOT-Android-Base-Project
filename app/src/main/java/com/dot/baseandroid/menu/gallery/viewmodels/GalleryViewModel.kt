@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.dot.baseandroid.menu.gallery.models.GalleryModel
 import com.dot.baseandroid.networks.repositories.GalleryRepository
 
-class FragmentGalleryViewModel: ViewModel() {
+class GalleryViewModel: ViewModel() {
 
     private val repository = GalleryRepository(viewModelScope)
 

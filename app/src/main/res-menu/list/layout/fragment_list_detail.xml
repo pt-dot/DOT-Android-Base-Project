@@ -6,7 +6,7 @@
 
     <data>
         <variable name="listDetail"
-                  type="com.dot.baseandroid.menu.list.viewmodels.FragmentListDetailViewModel"/>
+                  type="com.dot.baseandroid.menu.list.viewmodels.ListDetailViewModel"/>
     </data>
 
     <LinearLayout

@@ -12,12 +12,12 @@ import com.dot.baseandroid.R
 import com.dot.baseandroid.databinding.FragmentGalleryBinding
 import com.dot.baseandroid.menu.gallery.adapters.GalleryAdapter
 import com.dot.baseandroid.menu.gallery.models.GalleryModel
-import com.dot.baseandroid.menu.gallery.viewmodels.FragmentGalleryViewModel
+import com.dot.baseandroid.menu.gallery.viewmodels.GalleryViewModel
 
 class FragmentGallery: Fragment() {
 
     private lateinit var binding: FragmentGalleryBinding
-    private val viewModel: FragmentGalleryViewModel by viewModels()
+    private val viewModel: GalleryViewModel by viewModels()
 
     private lateinit var adapter: GalleryAdapter
 

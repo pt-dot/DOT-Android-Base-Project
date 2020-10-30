@@ -5,7 +5,7 @@
 
     <data>
         <variable name="galleryDetail"
-                  type="com.dot.baseandroid.menu.gallery.viewmodels.FragmentGalleryDetailViewModel"/>
+                  type="com.dot.baseandroid.menu.gallery.viewmodels.GalleryDetailViewModel"/>
     </data>
 
     <LinearLayout

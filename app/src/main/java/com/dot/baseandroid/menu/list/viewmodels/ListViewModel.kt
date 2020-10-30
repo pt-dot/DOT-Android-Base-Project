@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.dot.baseandroid.menu.list.models.PlaceModel
 import com.dot.baseandroid.networks.repositories.ListRepository
 
-class FragmentListViewModel : ViewModel() {
+class ListViewModel : ViewModel() {
 
     private val repository = ListRepository(viewModelScope)
 

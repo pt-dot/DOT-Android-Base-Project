@@ -2,6 +2,7 @@
 
 - Build with Kotlin, Use MVVM Pattern
 - Use Kotlin Coroutines
+- Android Navigation & Paging
 
 [Download APK](https://www.dropbox.com/s/i514wgsy13e08kx)
 
@@ -14,6 +15,7 @@
 - [Android Architecture Component](https://developer.android.com/topic/libraries/architecture/)
 - [Coil](https://github.com/coil-kt/coil/)
 - [Kotlin Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
+- [OkHttp](https://github.com/square/okhttp)
 - [Retrofit](https://github.com/square/retrofit)
 - [SDP](https://github.com/intuit/sdp)
 - [SSP](https://github.com/intuit/ssp)

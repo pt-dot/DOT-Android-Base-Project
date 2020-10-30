@@ -1,11 +1,10 @@
 package com.dot.baseandroid.menu.list.viewmodels
 
-import android.app.Application
 import androidx.databinding.ObservableField
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
 import com.dot.baseandroid.menu.list.models.PlaceModel
 
-class FragmentListDetailViewModel(placeModel: PlaceModel, application: Application) : AndroidViewModel(application) {
+class FragmentListDetailViewModel(placeModel: PlaceModel) : ViewModel() {
 
     var name: ObservableField<String> = ObservableField(placeModel.name)
     var description: ObservableField<String> = ObservableField(placeModel.description)

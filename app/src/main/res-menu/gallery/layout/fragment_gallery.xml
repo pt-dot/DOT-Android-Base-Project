@@ -6,7 +6,7 @@
     <data>
         <variable
                 name="gallery"
-                type="com.dot.baseandroid.menu.gallery.viewmodels.FragmentGalleryViewModel"/>
+                type="com.dot.baseandroid.menu.gallery.viewmodels.GalleryViewModel"/>
     </data>
 
     <RelativeLayout
@@ -24,7 +24,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                    app:spanCount="3"
+                    app:spanCount="@integer/gallery_span_count"
                     tools:listitem="@layout/item_gallery"
                     tools:itemCount="20"/>
 

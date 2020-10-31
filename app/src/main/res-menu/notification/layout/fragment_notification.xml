@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools">
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
                 name="notification"
-                type="com.dot.baseandroid.menu.notification.viewmodels.FragmentNotificationViewModel"/>
+                type="com.dot.baseandroid.menu.notification.viewmodels.NotificationViewModel"/>
     </data>
 
     <RelativeLayout
@@ -21,6 +22,7 @@
                     android:id="@+id/recyclerViewListNotification"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:itemCount="20"
                     tools:listitem="@layout/item_notification"/>
 

@@ -1,23 +1,22 @@
 package com.dot.baseandroid.menu.gallery.viewmodels
 
-import android.app.Application
-import android.content.Context
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dot.baseandroid.menu.gallery.models.GalleryModel
 import com.dot.baseandroid.networks.repositories.GalleryRepository
 
-class FragmentGalleryViewModel(application: Application) : AndroidViewModel(application) {
+class GalleryViewModel: ViewModel() {
 
     private val repository = GalleryRepository(viewModelScope)
 
     var liveDataListGallery: MutableLiveData<MutableList<GalleryModel>> = MutableLiveData()
     var isLoading: MutableLiveData<Boolean> = MutableLiveData()
 
-    fun getListGallery(context: Context) {
+    fun getListGallery() {
         isLoading.postValue(true)
-        repository.getListGallery(context, {
+        repository.getListGallery({
+            isLoading.postValue(false)
             liveDataListGallery.postValue(it)
         }, {
             isLoading.postValue(false)

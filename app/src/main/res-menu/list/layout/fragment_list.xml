@@ -6,7 +6,7 @@
     <data>
         <variable
                 name="list"
-                type="com.dot.baseandroid.menu.list.viewmodels.FragmentListViewModel"/>
+                type="com.dot.baseandroid.menu.list.viewmodels.ListViewModel"/>
     </data>
 
     <RelativeLayout
@@ -23,6 +23,8 @@
                     android:id="@+id/recyclerViewList"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="3"
                     tools:listitem="@layout/item_list"/>
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

@@ -5,7 +5,7 @@
 
     <data>
         <variable name="galleryDetail"
-                  type="com.dot.baseandroid.menu.gallery.viewmodels.FragmentGalleryDetailViewModel"/>
+                  type="com.dot.baseandroid.menu.gallery.viewmodels.GalleryDetailViewModel"/>
     </data>
 
     <LinearLayout
@@ -20,15 +20,14 @@
                 app:setImageUrl="@{galleryDetail.imageUrl}"
                 tools:srcCompat="@tools:sample/backgrounds/scenic"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/item_recycler_view_margin"
-                android:layout_marginLeft="@dimen/item_recycler_view_margin"
-                android:layout_marginRight="@dimen/item_recycler_view_margin"
-                android:textSize="@dimen/_12ssp"
+                android:layout_marginHorizontal="@dimen/item_recycler_view_margin"
                 android:text="@{galleryDetail.caption}"
-                tools:text="@tools:sample/lorem/random"/>
+                android:theme="@style/Caption"
+                tools:text="@tools:sample/lorem"/>
 
     </LinearLayout>
 

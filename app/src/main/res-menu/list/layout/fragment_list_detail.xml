@@ -6,7 +6,7 @@
 
     <data>
         <variable name="listDetail"
-                  type="com.dot.baseandroid.menu.list.viewmodels.FragmentListDetailViewModel"/>
+                  type="com.dot.baseandroid.menu.list.viewmodels.ListDetailViewModel"/>
     </data>
 
     <LinearLayout
@@ -21,25 +21,23 @@
                 app:setImageUrl="@{listDetail.imageUrl}"
                 tools:srcCompat="@tools:sample/backgrounds/scenic"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/item_recycler_view_margin"
-                android:layout_marginLeft="@dimen/item_recycler_view_margin"
-                android:layout_marginRight="@dimen/item_recycler_view_margin"
+                android:layout_marginHorizontal="@dimen/item_recycler_view_margin"
                 android:textSize="@dimen/text_view_title_item_list_size"
                 android:textStyle="bold"
                 android:text="@{listDetail.name}"
                 tools:text="@tools:sample/cities"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/item_recycler_view_margin"
-                android:layout_marginRight="@dimen/item_recycler_view_margin"
-                android:textSize="@dimen/_12ssp"
+                android:layout_marginHorizontal="@dimen/item_recycler_view_margin"
                 android:text="@{listDetail.description}"
-                tools:text="@tools:sample/lorem/random"/>
+                android:theme="@style/Caption"
+                tools:text="@tools:sample/lorem"/>
 
     </LinearLayout>
 

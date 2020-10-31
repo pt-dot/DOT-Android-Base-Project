@@ -1,15 +1,26 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">
         <item name="android:fontFamily">@font/font_pacifico</item>
+    </style>
+
+    <style name="Title" parent="Widget.MaterialComponents.TextView">
+        <item name="android:shadowColor">@color/text_shadow</item>
+        <item name="android:shadowDx">@integer/global_text_shadow_dx</item>
+        <item name="android:shadowDy">@integer/global_text_shadow_dy</item>
+        <item name="android:shadowRadius">@integer/global_text_shadow_radius</item>
+    </style>
+
+    <style name="Caption" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">@dimen/_12ssp</item>
     </style>
 
 </resources>

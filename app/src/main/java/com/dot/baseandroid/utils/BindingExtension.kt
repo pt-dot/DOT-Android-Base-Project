@@ -3,7 +3,7 @@ package com.dot.baseandroid.utils
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import coil.api.load
+import coil.load
 import com.dot.baseandroid.R
 
 @BindingAdapter("setImageUrl")

@@ -1,9 +1,8 @@
 package com.dot.baseandroid.menu.notification.viewmodels
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
+import androidx.lifecycle.ViewModel
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.dot.baseandroid.menu.notification.models.NotificationModel
@@ -11,7 +10,7 @@ import com.dot.baseandroid.menu.notification.paging.NotificationDataSource
 import com.dot.baseandroid.menu.notification.paging.NotificationDataSourceFactory
 import com.dot.baseandroid.utils.LoadingState
 
-class FragmentNotificationViewModel(application: Application) : AndroidViewModel(application) {
+class NotificationViewModel: ViewModel() {
 
     private var notificationDataSourceFactory: NotificationDataSourceFactory = NotificationDataSourceFactory()
     var notificationList: LiveData<PagedList<NotificationModel>>
@@ -27,7 +26,7 @@ class FragmentNotificationViewModel(application: Application) : AndroidViewModel
     }
 
     fun getLoadingState(): LiveData<LoadingState> {
-        return Transformations.switchMap<NotificationDataSource, LoadingState>(notificationDataSourceFactory.notificationDataSourceLiveData, NotificationDataSource::state)
+        return Transformations.switchMap(notificationDataSourceFactory.notificationDataSourceLiveData, NotificationDataSource::state)
     }
 
     fun refreshListNotification() {

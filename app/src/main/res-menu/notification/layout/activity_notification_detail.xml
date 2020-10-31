@@ -1,16 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
 
-    <RelativeLayout
+    <data>
+        <variable
+                name="notification"
+                type="com.dot.baseandroid.menu.notification.viewmodels.DetailNotificationViewModel" />
+    </data>
+
+    <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
+        <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="@string/detail"/>
+                android:theme="@style/AppTheme.AppBarOverlay">
 
-    </RelativeLayout>
+            <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/tbNotificationDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"/>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@{notification.message}"
+                    android:theme="@style/Caption"
+                    tools:text="@string/detail"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </layout>

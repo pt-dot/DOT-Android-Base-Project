@@ -13,11 +13,11 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/_8sdp">
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_14ssp"
                 android:text="@{itemNotification.message}"
+                android:theme="@style/Caption"
                 tools:text="Notifications"/>
 
     </LinearLayout>

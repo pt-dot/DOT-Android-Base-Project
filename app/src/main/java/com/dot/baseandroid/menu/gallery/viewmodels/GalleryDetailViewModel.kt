@@ -1,11 +1,10 @@
 package com.dot.baseandroid.menu.gallery.viewmodels
 
-import android.app.Application
 import androidx.databinding.ObservableField
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
 import com.dot.baseandroid.menu.gallery.models.GalleryModel
 
-class FragmentGalleryDetailViewModel(galleryModel: GalleryModel, application: Application) : AndroidViewModel(application) {
+class GalleryDetailViewModel(galleryModel: GalleryModel) : ViewModel() {
 
     var imageUrl: ObservableField<String> = ObservableField(galleryModel.image)
     var caption: ObservableField<String> = ObservableField(galleryModel.caption)

@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit
 
 object ServiceFactory {
 
-    fun create(): RestApi {
+    private fun retrofitInstance(): Retrofit {
         val logging = HttpLoggingInterceptor()
         if (BuildConfig.DEBUG) {
             logging.level = HttpLoggingInterceptor.Level.BODY
@@ -20,14 +20,19 @@ object ServiceFactory {
 
         val clientBuilder = OkHttpClient.Builder()
         clientBuilder.addInterceptor(logging)
+        clientBuilder.callTimeout(Constants.TIME_OUT, TimeUnit.SECONDS)
         clientBuilder.connectTimeout(Constants.TIME_OUT, TimeUnit.SECONDS)
         clientBuilder.readTimeout(Constants.TIME_OUT, TimeUnit.SECONDS)
 
-        val retrofit = Retrofit.Builder()
+         return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(clientBuilder.build())
             .build()
-        return retrofit.create(RestApi::class.java)
     }
+
+    fun <T> getApiService(service: Class<T>): T {
+        return retrofitInstance().create(service)
+    }
+
 }

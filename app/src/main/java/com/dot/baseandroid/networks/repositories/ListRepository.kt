@@ -1,23 +1,27 @@
 package com.dot.baseandroid.networks.repositories
 
-import android.content.Context
 import com.dot.baseandroid.menu.list.models.PlaceModel
-import com.dot.baseandroid.networks.Network
+import com.dot.baseandroid.networks.SafeApiRequest
 import com.dot.baseandroid.networks.ServiceFactory
+import com.dot.baseandroid.networks.rests.RestApiPlace
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
-class ListRepository(coroutineScope: CoroutineScope) {
+class ListRepository(private val scope: CoroutineScope): SafeApiRequest() {
 
-    private val network = Network(coroutineScope)
-    private val restApi = ServiceFactory.create()
+    private val restApi = ServiceFactory.getApiService(RestApiPlace::class.java)
 
-    fun getListPlace(context: Context, onSuccess: (MutableList<PlaceModel>?) -> Unit, onFinally:(Boolean) -> Unit) {
-        network.request(context, {
-            restApi.getListPlace()
-        }, {
-            onSuccess(it)
-        }, {
-            onFinally(true)
-        })
+    fun getListPlace(onSuccess: (MutableList<PlaceModel>?) -> Unit, onError:(Exception) -> Unit) {
+        scope.launch {
+            try {
+                val result = apiRequest { restApi.getListPlace() }
+                onSuccess(result)
+            } catch (e: Exception) {
+                if (e !is CancellationException) {
+                    onError(e)
+                }
+            }
+        }
     }
 }

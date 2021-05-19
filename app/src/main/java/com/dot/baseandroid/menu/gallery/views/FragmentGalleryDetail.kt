@@ -20,7 +20,7 @@ class FragmentGalleryDetail: Fragment() {
     private lateinit var binding: FragmentGalleryDetailBinding
     private val viewModel: GalleryDetailViewModel by viewModels { ViewModelFragmentFactory(args.dataDetailGallery as Any) }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_gallery_detail, container, false)
         binding.galleryDetail = viewModel
         return binding.root

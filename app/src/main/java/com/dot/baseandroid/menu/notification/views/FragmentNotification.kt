@@ -21,7 +21,7 @@ class FragmentNotification: Fragment() {
 
     private lateinit var adapter: NotificationAdapter
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_notification, container, false)
         binding.lifecycleOwner = this
         binding.notification = viewModel

@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import com.dot.baseandroid.R
 import com.dot.baseandroid.databinding.FragmentNotificationBinding
+import com.dot.baseandroid.menu.notification.adapters.LoadingNotificationAdapter
 import com.dot.baseandroid.menu.notification.adapters.NotificationAdapter
 import com.dot.baseandroid.menu.notification.models.NotificationModel
 import com.dot.baseandroid.menu.notification.viewmodels.NotificationViewModel
@@ -49,7 +50,9 @@ class FragmentNotification: Fragment() {
         adapter = NotificationAdapter{
             onItemClicked(it)
         }
-        binding.recyclerViewListNotification.adapter = adapter
+        binding.recyclerViewListNotification.adapter = adapter.withLoadStateFooter(
+            footer = LoadingNotificationAdapter()
+        )
     }
 
     private fun observeLiveData() {

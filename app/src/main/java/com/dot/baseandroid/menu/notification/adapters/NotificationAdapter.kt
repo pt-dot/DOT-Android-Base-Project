@@ -3,7 +3,7 @@ package com.dot.baseandroid.menu.notification.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.paging.PagedListAdapter
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.dot.baseandroid.R
 import com.dot.baseandroid.menu.notification.adapters.viewholders.NotificationViewHolder
@@ -11,7 +11,7 @@ import com.dot.baseandroid.menu.notification.models.NotificationModel
 import com.dot.baseandroid.utils.AdapterCallback
 import com.dot.baseandroid.utils.LoadingState
 
-class NotificationAdapter(val onClick: (NotificationModel) -> Unit): PagedListAdapter<NotificationModel, RecyclerView.ViewHolder>(AdapterCallback.DiffNotificationCallback) {
+class NotificationAdapter(val onClick: (NotificationModel) -> Unit): PagingDataAdapter<NotificationModel, RecyclerView.ViewHolder>(AdapterCallback.DiffNotificationCallback) {
 
     companion object {
         const val VIEW_TYPE_ITEM = 1
@@ -36,7 +36,7 @@ class NotificationAdapter(val onClick: (NotificationModel) -> Unit): PagedListAd
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is NotificationViewHolder) {
-            val notificationModel: NotificationModel? = getItem(holder.adapterPosition)
+            val notificationModel: NotificationModel? = getItem(position)
             notificationModel?.let {
                 holder.bind(notificationModel)
                 holder.itemView.setOnClickListener {

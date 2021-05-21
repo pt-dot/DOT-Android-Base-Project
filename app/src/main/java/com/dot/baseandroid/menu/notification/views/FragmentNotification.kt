@@ -7,12 +7,15 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import com.dot.baseandroid.R
 import com.dot.baseandroid.databinding.FragmentNotificationBinding
 import com.dot.baseandroid.menu.notification.adapters.NotificationAdapter
 import com.dot.baseandroid.menu.notification.models.NotificationModel
 import com.dot.baseandroid.menu.notification.viewmodels.NotificationViewModel
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 class FragmentNotification: Fragment() {
 
@@ -50,12 +53,12 @@ class FragmentNotification: Fragment() {
     }
 
     private fun observeLiveData() {
-        viewModel.notificationList.observe(viewLifecycleOwner, {
-            adapter.submitList(it)
-        })
-        viewModel.getLoadingState().observe(viewLifecycleOwner, {
+        lifecycleScope.launch {
+            viewModel.loadPaginationData().collect {
+                adapter.submitData(it)
+            }
+        }
 
-        })
     }
 
     private fun onItemClicked(notificationModel: NotificationModel) {

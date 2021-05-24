@@ -42,7 +42,8 @@ class FragmentNotification: Fragment() {
 
     private fun setupSwipeRefresh() {
         binding.swipeRefreshListNotification.setOnRefreshListener {
-            viewModel.refreshListNotification()
+            binding.swipeRefreshListNotification.isRefreshing = false
+            adapter.refresh()
         }
     }
 

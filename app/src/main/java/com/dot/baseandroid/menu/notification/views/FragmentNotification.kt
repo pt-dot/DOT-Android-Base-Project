@@ -12,7 +12,7 @@ import androidx.navigation.findNavController
 import com.dot.baseandroid.R
 import com.dot.baseandroid.databinding.FragmentNotificationBinding
 import com.dot.baseandroid.menu.notification.adapters.LoadingNotificationAdapter
-import com.dot.baseandroid.menu.notification.adapters.NotificationAdapter
+import com.dot.baseandroid.menu.notification.adapters.NotificationPagingAdapter
 import com.dot.baseandroid.menu.notification.models.NotificationModel
 import com.dot.baseandroid.menu.notification.viewmodels.NotificationViewModel
 import kotlinx.coroutines.flow.collect
@@ -23,7 +23,7 @@ class FragmentNotification: Fragment() {
     private lateinit var binding: FragmentNotificationBinding
     private val viewModel: NotificationViewModel by viewModels()
 
-    private lateinit var adapter: NotificationAdapter
+    private lateinit var notificationPagingAdapter: NotificationPagingAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_notification, container, false)
@@ -43,15 +43,15 @@ class FragmentNotification: Fragment() {
     private fun setupSwipeRefresh() {
         binding.swipeRefreshListNotification.setOnRefreshListener {
             binding.swipeRefreshListNotification.isRefreshing = false
-            adapter.refresh()
+            notificationPagingAdapter.refresh()
         }
     }
 
     private fun setupRecyclerView() {
-        adapter = NotificationAdapter{
+        notificationPagingAdapter = NotificationPagingAdapter{
             onItemClicked(it)
         }
-        binding.recyclerViewListNotification.adapter = adapter.withLoadStateFooter(
+        binding.recyclerViewListNotification.adapter = notificationPagingAdapter.withLoadStateFooter(
             footer = LoadingNotificationAdapter()
         )
     }
@@ -59,10 +59,9 @@ class FragmentNotification: Fragment() {
     private fun observeLiveData() {
         lifecycleScope.launch {
             viewModel.loadPaginationData().collect {
-                adapter.submitData(it)
+                notificationPagingAdapter.submitData(it)
             }
         }
-
     }
 
     private fun onItemClicked(notificationModel: NotificationModel) {

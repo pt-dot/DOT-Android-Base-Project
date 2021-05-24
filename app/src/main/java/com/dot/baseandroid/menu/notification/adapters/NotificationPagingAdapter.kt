@@ -6,7 +6,7 @@ import com.dot.baseandroid.menu.notification.adapters.viewholders.NotificationVi
 import com.dot.baseandroid.menu.notification.models.NotificationModel
 import com.dot.baseandroid.utils.AdapterCallback
 
-class NotificationAdapter(val onClick: (NotificationModel) -> Unit): PagingDataAdapter<NotificationModel, NotificationViewHolder>
+class NotificationPagingAdapter(val onClick: (NotificationModel) -> Unit): PagingDataAdapter<NotificationModel, NotificationViewHolder>
     (AdapterCallback.DiffNotificationCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificationViewHolder {

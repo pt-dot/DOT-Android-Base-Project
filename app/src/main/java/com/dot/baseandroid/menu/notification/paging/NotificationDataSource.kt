@@ -9,7 +9,7 @@ import kotlinx.coroutines.delay
 /**
  * https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data#pagingsource
  */
-class NewNotificationDataSource: PagingSource<Int, NotificationModel>() {
+class NotificationDataSource: PagingSource<Int, NotificationModel>() {
 
     private var listNotification: MutableList<NotificationModel> = mutableListOf()
 

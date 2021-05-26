@@ -2,7 +2,7 @@ package com.dot.baseandroid.menu.notification.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.dot.baseandroid.data.Constants
+import com.dot.baseandroid.data.DUMMY_LOAD_MORE_TIME
 import com.dot.baseandroid.menu.notification.models.NotificationModel
 import kotlinx.coroutines.delay
 
@@ -27,7 +27,7 @@ class NotificationDataSource: PagingSource<Int, NotificationModel>() {
             for (i:Int in 1..20) {
                 listNotification.add(NotificationModel(i, "Notification # $i"))
             }
-            delay(Constants.DUMMY_LOAD_MORE_TIME)
+            delay(DUMMY_LOAD_MORE_TIME)
             return LoadResult.Page(
                 data = listNotification,
                 prevKey = null,

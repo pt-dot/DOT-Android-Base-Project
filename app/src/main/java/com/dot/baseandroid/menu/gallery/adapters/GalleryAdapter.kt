@@ -13,7 +13,7 @@ class GalleryAdapter(val onClick:(GalleryModel) -> Unit): ListAdapter<GalleryMod
     }
 
     override fun onBindViewHolder(holder: GalleryViewHolder, position: Int) {
-        val galleryModel = getItem(holder.adapterPosition)
+        val galleryModel = getItem(position)
         holder.bind(galleryModel)
         holder.itemView.setOnClickListener {
             onClick(galleryModel)

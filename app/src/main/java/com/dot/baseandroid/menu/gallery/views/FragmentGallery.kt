@@ -21,7 +21,7 @@ class FragmentGallery: Fragment() {
 
     private lateinit var adapter: GalleryAdapter
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_gallery, container, false)
         binding.lifecycleOwner = this
         binding.gallery = viewModel

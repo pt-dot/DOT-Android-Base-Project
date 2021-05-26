@@ -13,7 +13,7 @@ class MyListAdapter(val onClick:(PlaceModel) -> Unit): ListAdapter<PlaceModel, L
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val placeModel = getItem(holder.adapterPosition)
+        val placeModel = getItem(position)
         holder.bind(placeModel)
         holder.itemView.setOnClickListener {
             onClick(placeModel)

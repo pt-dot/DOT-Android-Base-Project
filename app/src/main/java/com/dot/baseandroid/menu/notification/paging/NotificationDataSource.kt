@@ -1,46 +1,40 @@
 package com.dot.baseandroid.menu.notification.paging
 
-import android.os.SystemClock
-import androidx.lifecycle.MutableLiveData
-import androidx.paging.PageKeyedDataSource
-import com.dot.baseandroid.data.Constants
+import androidx.paging.PagingSource
+import androidx.paging.PagingState
+import com.dot.baseandroid.data.DUMMY_LOAD_MORE_TIME
 import com.dot.baseandroid.menu.notification.models.NotificationModel
-import com.dot.baseandroid.utils.LoadingState
-import com.dot.baseandroid.utils.logDebug
+import kotlinx.coroutines.delay
 
-class NotificationDataSource: PageKeyedDataSource<Int, NotificationModel>() {
+/**
+ * https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data#pagingsource
+ */
+class NotificationDataSource: PagingSource<Int, NotificationModel>() {
 
-    var state: MutableLiveData<LoadingState> = MutableLiveData()
     private var listNotification: MutableList<NotificationModel> = mutableListOf()
 
-    override fun loadInitial(params: LoadInitialParams<Int>, callback: LoadInitialCallback<Int, NotificationModel>) {
-        logDebug("NotificationDataSource # loadInitial ${params.requestedLoadSize}")
-        updateState(LoadingState.LOADING)
-        listNotification.clear()
-        for (i:Int in 1..20) {
-            listNotification.add(NotificationModel(i, "Notification # $i"))
+    override fun getRefreshKey(state: PagingState<Int, NotificationModel>): Int? {
+        return state.anchorPosition?.let { anchorPosition ->
+            val anchorPage = state.closestPageToPosition(anchorPosition)
+            anchorPage?.prevKey?.plus(1) ?: anchorPage?.nextKey?.minus(1)
         }
-        updateState(LoadingState.DONE)
-        callback.onResult(listNotification, 0, 20)
     }
 
-    override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, NotificationModel>) {
-        logDebug("NotificationDataSource # loadAfter ${params.key}/${params.requestedLoadSize}")
-        updateState(LoadingState.LOADING)
-        listNotification.clear()
-        for (i:Int in 1..20) {
-            listNotification.add(NotificationModel(i, "Notification # $i"))
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, NotificationModel> {
+        try {
+            listNotification.clear()
+            val nextPageNumber = params.key ?: 1
+            for (i:Int in 1..20) {
+                listNotification.add(NotificationModel(i, "Notification # $i"))
+            }
+            delay(DUMMY_LOAD_MORE_TIME)
+            return LoadResult.Page(
+                data = listNotification,
+                prevKey = null,
+                nextKey = if (listNotification.isNullOrEmpty()) null else nextPageNumber + 1
+            )
+        } catch (e: Exception) {
+            return LoadResult.Error(e)
         }
-        SystemClock.sleep(Constants.DUMMY_LOAD_MORE_TIME)
-        updateState(LoadingState.DONE)
-        callback.onResult(listNotification, params.key+20)
-    }
-
-    override fun loadBefore(params: LoadParams<Int>, callback: LoadCallback<Int, NotificationModel>) {
-
-    }
-
-    private fun updateState(state: LoadingState){
-        this.state.postValue(state)
     }
 }

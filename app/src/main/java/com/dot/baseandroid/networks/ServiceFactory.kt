@@ -1,7 +1,7 @@
 package com.dot.baseandroid.networks
 
 import com.dot.baseandroid.BuildConfig
-import com.dot.baseandroid.data.Constants
+import com.dot.baseandroid.data.*
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -20,9 +20,9 @@ object ServiceFactory {
 
         val clientBuilder = OkHttpClient.Builder()
         clientBuilder.addInterceptor(logging)
-        clientBuilder.callTimeout(Constants.TIME_OUT, TimeUnit.SECONDS)
-        clientBuilder.connectTimeout(Constants.TIME_OUT, TimeUnit.SECONDS)
-        clientBuilder.readTimeout(Constants.TIME_OUT, TimeUnit.SECONDS)
+        clientBuilder.callTimeout(TIME_OUT, TimeUnit.SECONDS)
+        clientBuilder.connectTimeout(TIME_OUT, TimeUnit.SECONDS)
+        clientBuilder.readTimeout(TIME_OUT, TimeUnit.SECONDS)
 
          return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)

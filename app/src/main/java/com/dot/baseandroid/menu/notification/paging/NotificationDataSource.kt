@@ -31,7 +31,7 @@ class NotificationDataSource: PagingSource<Int, NotificationModel>() {
             return LoadResult.Page(
                 data = listNotification,
                 prevKey = null,
-                nextKey = nextPageNumber + 1
+                nextKey = if (listNotification.isNullOrEmpty()) null else nextPageNumber + 1
             )
         } catch (e: Exception) {
             return LoadResult.Error(e)

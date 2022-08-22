@@ -6,7 +6,7 @@
     <data>
         <variable
                 name="notification"
-                type="com.dot.baseandroid.menu.notification.viewmodels.NotificationViewModel"/>
+                type="com.dot.baseandroid.menu.load_more.viewmodels.LoadMoreViewModel"/>
     </data>
 
     <RelativeLayout
@@ -24,7 +24,7 @@
                     android:layout_height="match_parent"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:itemCount="20"
-                    tools:listitem="@layout/item_notification"/>
+                    tools:listitem="@layout/item_post_paging"/>
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

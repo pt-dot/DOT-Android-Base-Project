@@ -35,7 +35,7 @@ android {
                     'src/main/res-menu/',
                     'src/main/res-menu/gallery',
                     'src/main/res-menu/list',
-                    'src/main/res-menu/notification',
+                    'src/main/res-menu/load_more',
             ]
         }
     }

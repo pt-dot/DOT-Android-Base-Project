@@ -62,25 +62,25 @@
 
     </fragment>
 
-    <!-- fragment notification -->
+    <!-- fragment load_more -->
     <fragment
             android:id="@+id/fragmentThree"
             android:label="@string/three"
-            android:name="com.dot.baseandroid.menu.notification.views.FragmentNotification"
-            tools:layout="@layout/fragment_notification">
+            android:name="com.dot.baseandroid.menu.load_more.views.FragmentLoadMore"
+            tools:layout="@layout/fragment_load_more">
 
-        <action android:id="@+id/action_to_notification_detail"
+        <action android:id="@+id/action_to_post_paging_detail"
             app:destination="@+id/activityNotificationDetail"/>
 
     </fragment>
 
     <activity android:id="@+id/activityNotificationDetail"
-            android:name="com.dot.baseandroid.menu.notification.views.DetailNotificationActivity"
+            android:name="com.dot.baseandroid.menu.load_more.views.DetailPostPagingActivity"
             android:label="@string/detail"
-            tools:layout="@layout/activity_notification_detail">
+            tools:layout="@layout/activity_post_paging_detail">
 
-        <argument android:name="data_detail_notification"
-            app:argType="com.dot.baseandroid.menu.notification.models.NotificationModel" />
+        <argument android:name="data_detail_post_paging"
+            app:argType="com.dot.baseandroid.menu.list.models.PostModel" />
 
     </activity>
 

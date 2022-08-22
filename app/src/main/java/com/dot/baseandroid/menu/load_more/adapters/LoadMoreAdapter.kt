@@ -1,11 +1,11 @@
-package com.dot.baseandroid.menu.notification.adapters
+package com.dot.baseandroid.menu.load_more.adapters
 
 import android.view.ViewGroup
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
-import com.dot.baseandroid.menu.notification.adapters.viewholders.LoadMoreViewHolder
+import com.dot.baseandroid.menu.load_more.adapters.viewholders.LoadMoreViewHolder
 
-class LoadingNotificationAdapter: LoadStateAdapter<LoadMoreViewHolder>() {
+class LoadMoreAdapter: LoadStateAdapter<LoadMoreViewHolder>() {
 
     override fun onBindViewHolder(holder: LoadMoreViewHolder, loadState: LoadState) {
 

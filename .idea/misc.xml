@@ -11,6 +11,9 @@
         <entry key="app/src/main/res-menu/list/layout/fragment_list_post_detail.xml" value="0.3591485507246377" />
         <entry key="app/src/main/res-menu/list/layout/item_list.xml" value="0.4052863436123348" />
         <entry key="app/src/main/res-menu/list/layout/item_post.xml" value="0.23711340206185566" />
+        <entry key="app/src/main/res-menu/load_more/layout/fragment_load_more.xml" value="0.3591485507246377" />
+        <entry key="app/src/main/res-menu/load_more/layout/item_notification.xml" value="0.3591485507246377" />
+        <entry key="app/src/main/res-menu/load_more/layout/item_post_paging.xml" value="0.23711340206185566" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3591485507246377" />
       </map>
     </option>

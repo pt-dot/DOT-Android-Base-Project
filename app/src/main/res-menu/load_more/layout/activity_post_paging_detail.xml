@@ -5,7 +5,7 @@
     <data>
         <variable
                 name="notification"
-                type="com.dot.baseandroid.menu.notification.viewmodels.DetailNotificationViewModel" />
+                type="com.dot.baseandroid.menu.load_more.viewmodels.DetailPostPagingViewModel" />
     </data>
 
     <LinearLayout

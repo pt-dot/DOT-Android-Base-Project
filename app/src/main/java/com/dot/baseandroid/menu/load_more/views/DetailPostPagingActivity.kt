@@ -1,4 +1,4 @@
-package com.dot.baseandroid.menu.notification.views
+package com.dot.baseandroid.menu.load_more.views
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -7,19 +7,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.navArgs
 import com.dot.baseandroid.R
-import com.dot.baseandroid.databinding.ActivityNotificationDetailBinding
-import com.dot.baseandroid.menu.notification.viewmodels.DetailNotificationViewModel
+import com.dot.baseandroid.databinding.ActivityPostPagingDetailBinding
+import com.dot.baseandroid.menu.load_more.viewmodels.DetailPostPagingViewModel
 import com.dot.baseandroid.utils.ViewModelActivityFactory
 
-class DetailNotificationActivity: AppCompatActivity(){
+class DetailPostPagingActivity: AppCompatActivity(){
 
-    private val args: DetailNotificationActivityArgs by navArgs()
-    private lateinit var binding: ActivityNotificationDetailBinding
-    private val viewModel: DetailNotificationViewModel by viewModels { ViewModelActivityFactory(application, args.dataDetailNotification) }
+    private val args: DetailPostPagingActivityArgs by navArgs()
+    private lateinit var binding: ActivityPostPagingDetailBinding
+    private val viewModel: DetailPostPagingViewModel by viewModels { ViewModelActivityFactory(application, args.dataDetailPostPaging) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_notification_detail)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_post_paging_detail)
         binding.lifecycleOwner = this
         binding.notification = viewModel
 

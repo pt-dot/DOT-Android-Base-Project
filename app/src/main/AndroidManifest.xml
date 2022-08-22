@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".menu.notification.views.DetailNotificationActivity"
+        <activity android:name=".menu.load_more.views.DetailPostPagingActivity"
                   android:configChanges="orientation|keyboardHidden|screenSize"/>
     </application>
 

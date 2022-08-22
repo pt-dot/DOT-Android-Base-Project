@@ -3,7 +3,6 @@ package com.dot.baseandroid.utils
 import androidx.recyclerview.widget.DiffUtil
 import com.dot.baseandroid.menu.gallery.models.GalleryModel
 import com.dot.baseandroid.menu.list.models.PostModel
-import com.dot.baseandroid.menu.notification.models.NotificationModel
 
 class AdapterCallback {
 
@@ -33,20 +32,6 @@ class AdapterCallback {
             override fun areItemsTheSame(oldItem: GalleryModel, newItem: GalleryModel): Boolean {
                 return oldItem.id == newItem.id
             }
-        }
-
-        /**
-         * diff callback adapter notification
-         */
-        val DiffNotificationCallback = object : DiffUtil.ItemCallback<NotificationModel>() {
-            override fun areItemsTheSame(oldItem: NotificationModel, newItem: NotificationModel): Boolean {
-                return oldItem.message == newItem.message
-            }
-
-            override fun areContentsTheSame(oldItem: NotificationModel, newItem: NotificationModel): Boolean {
-                return oldItem == newItem
-            }
-
         }
 
     }

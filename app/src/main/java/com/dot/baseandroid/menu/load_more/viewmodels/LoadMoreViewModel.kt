@@ -1,4 +1,4 @@
-package com.dot.baseandroid.menu.notification.viewmodels
+package com.dot.baseandroid.menu.load_more.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -6,27 +6,27 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.dot.baseandroid.menu.notification.models.NotificationModel
-import com.dot.baseandroid.menu.notification.paging.NotificationDataSource
+import com.dot.baseandroid.menu.list.models.PostModel
+import com.dot.baseandroid.menu.load_more.paging.PostsDataSource
 import kotlinx.coroutines.flow.Flow
 
-class NotificationViewModel: ViewModel() {
+class LoadMoreViewModel: ViewModel() {
 
-    private var currentNotificationResult: Flow<PagingData<NotificationModel>>? = null
+    private var currentNotificationResult: Flow<PagingData<PostModel>>? = null
 
     private val pageConfig = PagingConfig(
         pageSize = 20,
         enablePlaceholders = false
     )
 
-    fun loadPaginationData(): Flow<PagingData<NotificationModel>> {
+    fun loadPaginationData(): Flow<PagingData<PostModel>> {
         val lastResult = currentNotificationResult
         if (lastResult != null) {
             return lastResult
         }
-        val newResult: Flow<PagingData<NotificationModel>> = Pager(
+        val newResult: Flow<PagingData<PostModel>> = Pager(
             config = pageConfig,
-            pagingSourceFactory = { NotificationDataSource() }
+            pagingSourceFactory = { PostsDataSource() }
         ).flow.cachedIn(viewModelScope)
         currentNotificationResult = newResult
         return newResult

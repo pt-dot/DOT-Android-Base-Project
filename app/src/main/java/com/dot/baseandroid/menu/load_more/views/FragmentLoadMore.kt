@@ -1,4 +1,4 @@
-package com.dot.baseandroid.menu.notification.views
+package com.dot.baseandroid.menu.load_more.views
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,22 +10,22 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import com.dot.baseandroid.R
-import com.dot.baseandroid.databinding.FragmentNotificationBinding
-import com.dot.baseandroid.menu.notification.adapters.LoadingNotificationAdapter
-import com.dot.baseandroid.menu.notification.adapters.NotificationPagingAdapter
-import com.dot.baseandroid.menu.notification.models.NotificationModel
-import com.dot.baseandroid.menu.notification.viewmodels.NotificationViewModel
+import com.dot.baseandroid.databinding.FragmentLoadMoreBinding
+import com.dot.baseandroid.menu.list.models.PostModel
+import com.dot.baseandroid.menu.load_more.adapters.LoadMoreAdapter
+import com.dot.baseandroid.menu.load_more.adapters.PostPagingAdapter
+import com.dot.baseandroid.menu.load_more.viewmodels.LoadMoreViewModel
 import kotlinx.coroutines.launch
 
-class FragmentNotification: Fragment() {
+class FragmentLoadMore: Fragment() {
 
-    private lateinit var binding: FragmentNotificationBinding
-    private val viewModel: NotificationViewModel by viewModels()
+    private lateinit var binding: FragmentLoadMoreBinding
+    private val viewModel: LoadMoreViewModel by viewModels()
 
-    private lateinit var notificationPagingAdapter: NotificationPagingAdapter
+    private lateinit var postPagingAdapter: PostPagingAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_notification, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_load_more, container, false)
         binding.lifecycleOwner = this
         binding.notification = viewModel
         return binding.root
@@ -42,29 +42,29 @@ class FragmentNotification: Fragment() {
     private fun setupSwipeRefresh() {
         binding.swipeRefreshListNotification.setOnRefreshListener {
             binding.swipeRefreshListNotification.isRefreshing = false
-            notificationPagingAdapter.refresh()
+            postPagingAdapter.refresh()
         }
     }
 
     private fun setupRecyclerView() {
-        notificationPagingAdapter = NotificationPagingAdapter{
+        postPagingAdapter = PostPagingAdapter{
             onItemClicked(it)
         }
-        binding.recyclerViewListNotification.adapter = notificationPagingAdapter.withLoadStateFooter(
-            footer = LoadingNotificationAdapter()
+        binding.recyclerViewListNotification.adapter = postPagingAdapter.withLoadStateFooter(
+            footer = LoadMoreAdapter()
         )
     }
 
     private fun observeLiveData() {
         lifecycleScope.launch {
             viewModel.loadPaginationData().collect {
-                notificationPagingAdapter.submitData(it)
+                postPagingAdapter.submitData(it)
             }
         }
     }
 
-    private fun onItemClicked(notificationModel: NotificationModel) {
-        val action = FragmentNotificationDirections.actionToNotificationDetail(notificationModel)
+    private fun onItemClicked(postModel: PostModel) {
+        val action = FragmentLoadMoreDirections.actionToPostPagingDetail(postModel)
         view?.findNavController()?.navigate(action)
     }
 

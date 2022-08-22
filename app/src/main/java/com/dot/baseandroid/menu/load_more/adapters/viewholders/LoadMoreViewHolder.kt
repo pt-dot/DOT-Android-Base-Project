@@ -1,4 +1,4 @@
-package com.dot.baseandroid.menu.notification.adapters.viewholders
+package com.dot.baseandroid.menu.load_more.adapters.viewholders
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

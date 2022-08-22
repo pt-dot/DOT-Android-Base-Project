@@ -1,4 +1,4 @@
-## DOT Base Project for Android 1.0.5 ##
+## DOT Base Project for Android ##
 
 - Build with Kotlin, Use MVVM Pattern
 - [Jetpack](https://developer.android.com/jetpack/)
@@ -18,7 +18,6 @@
 - [AndroidX](https://developer.android.com/jetpack/androidx/)
 - [Android Architecture Component](https://developer.android.com/topic/libraries/architecture/)
 - [Coil](https://github.com/coil-kt/coil/)
-- [Kotlin Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
 - [OkHttp](https://github.com/square/okhttp)
 - [Retrofit](https://github.com/square/retrofit)
 - [SDP](https://github.com/intuit/sdp)

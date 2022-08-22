@@ -52,9 +52,9 @@ class FragmentList: Fragment() {
     }
 
     private fun observeLiveData() {
-        viewModel.liveDataList.observe(viewLifecycleOwner, {
+        viewModel.liveDataList.observe(viewLifecycleOwner) {
             adapter.submitList(it)
-        })
+        }
     }
 
     private fun onItemClick(placeModel: PlaceModel) {

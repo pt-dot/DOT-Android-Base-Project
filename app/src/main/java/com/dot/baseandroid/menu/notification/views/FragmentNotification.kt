@@ -15,7 +15,6 @@ import com.dot.baseandroid.menu.notification.adapters.LoadingNotificationAdapter
 import com.dot.baseandroid.menu.notification.adapters.NotificationPagingAdapter
 import com.dot.baseandroid.menu.notification.models.NotificationModel
 import com.dot.baseandroid.menu.notification.viewmodels.NotificationViewModel
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class FragmentNotification: Fragment() {

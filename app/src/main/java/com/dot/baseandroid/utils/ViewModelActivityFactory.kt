@@ -9,7 +9,7 @@ import com.dot.baseandroid.menu.notification.viewmodels.DetailNotificationViewMo
 class ViewModelActivityFactory(private val application: Application, private val any: Any): ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass == DetailNotificationViewModel::class.java) {
             return DetailNotificationViewModel(application, any as NotificationModel) as T
         }

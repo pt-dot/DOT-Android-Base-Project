@@ -13,7 +13,7 @@ import com.dot.baseandroid.menu.list.viewmodels.ListDetailViewModel
 class ViewModelFragmentFactory(private val any: Any): ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass == ListDetailViewModel::class.java) {
             return ListDetailViewModel(any as PlaceModel) as T
         } else if (modelClass == GalleryDetailViewModel::class.java) {

@@ -9,20 +9,20 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.dot.baseandroid.R
-import com.dot.baseandroid.databinding.FragmentListBinding
-import com.dot.baseandroid.menu.list.adapters.MyListAdapter
-import com.dot.baseandroid.menu.list.models.PlaceModel
-import com.dot.baseandroid.menu.list.viewmodels.ListViewModel
+import com.dot.baseandroid.databinding.FragmentListPostBinding
+import com.dot.baseandroid.menu.list.adapters.ListPostAdapter
+import com.dot.baseandroid.menu.list.models.PostModel
+import com.dot.baseandroid.menu.list.viewmodels.ListPostViewModel
 
-class FragmentList: Fragment() {
+class FragmentListPost: Fragment() {
 
-    private lateinit var binding: FragmentListBinding
-    private val viewModel: ListViewModel by viewModels()
+    private lateinit var binding: FragmentListPostBinding
+    private val viewModel: ListPostViewModel by viewModels()
 
-    private lateinit var adapter: MyListAdapter
+    private lateinit var adapter: ListPostAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_list, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_list_post, container, false)
         binding.lifecycleOwner = this
         binding.list = viewModel
         return binding.root
@@ -35,17 +35,17 @@ class FragmentList: Fragment() {
         setupRecyclerView()
         observeLiveData()
 
-        viewModel.getList()
+        viewModel.getPosts()
     }
 
     private fun setupSwipeRefresh() {
         binding.swipeRefreshList.setOnRefreshListener {
-            viewModel.getList()
+            viewModel.getPosts()
         }
     }
 
     private fun setupRecyclerView() {
-        adapter = MyListAdapter {
+        adapter = ListPostAdapter {
             onItemClick(it)
         }
         binding.recyclerViewList.adapter = adapter
@@ -57,9 +57,9 @@ class FragmentList: Fragment() {
         }
     }
 
-    private fun onItemClick(placeModel: PlaceModel) {
-        val action = FragmentListDirections.actionToOneDetail()
-        action.dataDetailListPlace = placeModel
+    private fun onItemClick(placeModel: PostModel) {
+        val action = FragmentListPostDirections.actionToOneDetail()
+        action.dataDetailListPost = placeModel
         findNavController().navigate(action)
     }
 

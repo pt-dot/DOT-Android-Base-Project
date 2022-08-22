@@ -9,19 +9,19 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.dot.baseandroid.R
-import com.dot.baseandroid.databinding.FragmentListDetailBinding
+import com.dot.baseandroid.databinding.FragmentListPostDetailBinding
 import com.dot.baseandroid.main.MainActivity
-import com.dot.baseandroid.menu.list.viewmodels.ListDetailViewModel
+import com.dot.baseandroid.menu.list.viewmodels.ListPostDetailViewModel
 import com.dot.baseandroid.utils.ViewModelFragmentFactory
 
-class FragmentListDetail: Fragment() {
+class FragmentListPostDetail: Fragment() {
 
-    private val args: FragmentListDetailArgs by navArgs()
-    private lateinit var binding: FragmentListDetailBinding
-    private val viewModel: ListDetailViewModel by viewModels { ViewModelFragmentFactory(args.dataDetailListPlace as Any) }
+    private val args: FragmentListPostDetailArgs by navArgs()
+    private lateinit var binding: FragmentListPostDetailBinding
+    private val viewModel: ListPostDetailViewModel by viewModels { ViewModelFragmentFactory(args.dataDetailListPost as Any) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_list_detail, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_list_post_detail, container, false)
         binding.listDetail = viewModel
         return binding.root
     }

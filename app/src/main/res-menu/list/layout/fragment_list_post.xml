@@ -6,7 +6,7 @@
     <data>
         <variable
                 name="list"
-                type="com.dot.baseandroid.menu.list.viewmodels.ListViewModel"/>
+                type="com.dot.baseandroid.menu.list.viewmodels.ListPostViewModel"/>
     </data>
 
     <RelativeLayout
@@ -25,7 +25,7 @@
                     android:layout_height="match_parent"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:itemCount="3"
-                    tools:listitem="@layout/item_list"/>
+                    tools:listitem="@layout/item_post" />
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

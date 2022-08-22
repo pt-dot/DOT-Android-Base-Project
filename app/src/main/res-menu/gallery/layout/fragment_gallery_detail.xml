@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/item_recycler_view_margin"
                 android:layout_marginHorizontal="@dimen/item_recycler_view_margin"
-                android:text="@{galleryDetail.caption}"
+                android:text="@{galleryDetail.title}"
                 android:theme="@style/Caption"
                 tools:text="@tools:sample/lorem"/>
 

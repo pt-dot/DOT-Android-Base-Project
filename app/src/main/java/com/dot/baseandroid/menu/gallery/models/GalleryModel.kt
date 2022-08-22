@@ -9,7 +9,8 @@ import kotlinx.android.parcel.Parcelize
 @Keep
 @Parcelize
 data class GalleryModel(
-    @SerializedName("caption") @Expose val caption: String,
-    @SerializedName("thumbnail") @Expose val thumbnail: String,
-    @SerializedName("image") @Expose val image: String
+    @SerializedName("id") @Expose val id: Int,
+    @SerializedName("title") @Expose val title: String,
+    @SerializedName("url") @Expose val url: String,
+    @SerializedName("thumbnailUrl") @Expose val thumbnail: String
 ): Parcelable

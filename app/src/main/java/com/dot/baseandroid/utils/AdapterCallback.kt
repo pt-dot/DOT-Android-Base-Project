@@ -31,7 +31,7 @@ class AdapterCallback {
             }
 
             override fun areItemsTheSame(oldItem: GalleryModel, newItem: GalleryModel): Boolean {
-                return oldItem.caption == newItem.caption
+                return oldItem.id == newItem.id
             }
         }
 

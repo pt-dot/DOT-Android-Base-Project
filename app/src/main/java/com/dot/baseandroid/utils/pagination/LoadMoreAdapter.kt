@@ -1,9 +1,8 @@
-package com.dot.baseandroid.menu.load_more.adapters
+package com.dot.baseandroid.utils.pagination
 
 import android.view.ViewGroup
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
-import com.dot.baseandroid.menu.load_more.adapters.viewholders.LoadMoreViewHolder
 
 class LoadMoreAdapter: LoadStateAdapter<LoadMoreViewHolder>() {
 

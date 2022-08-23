@@ -12,7 +12,7 @@ import androidx.navigation.findNavController
 import com.dot.baseandroid.R
 import com.dot.baseandroid.databinding.FragmentLoadMoreBinding
 import com.dot.baseandroid.menu.list.models.PostModel
-import com.dot.baseandroid.menu.load_more.adapters.LoadMoreAdapter
+import com.dot.baseandroid.utils.pagination.LoadMoreAdapter
 import com.dot.baseandroid.menu.load_more.adapters.PostPagingAdapter
 import com.dot.baseandroid.menu.load_more.viewmodels.LoadMoreViewModel
 import kotlinx.coroutines.launch

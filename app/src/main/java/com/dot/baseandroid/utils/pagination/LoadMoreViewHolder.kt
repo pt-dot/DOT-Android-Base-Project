@@ -1,4 +1,4 @@
-package com.dot.baseandroid.menu.load_more.adapters.viewholders
+package com.dot.baseandroid.utils.pagination
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

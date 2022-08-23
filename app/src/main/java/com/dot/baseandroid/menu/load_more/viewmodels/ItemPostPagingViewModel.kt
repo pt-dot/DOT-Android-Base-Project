@@ -6,6 +6,7 @@ import com.dot.baseandroid.menu.list.models.PostModel
 
 class ItemPostPagingViewModel(postModel: PostModel): ViewModel() {
 
-    var message: ObservableField<String> = ObservableField("${postModel.id}. ${postModel.title}")
+    var id: ObservableField<String> = ObservableField("${postModel.id}")
+    var message: ObservableField<String> = ObservableField(postModel.title)
 
 }

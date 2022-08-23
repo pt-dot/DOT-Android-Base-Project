@@ -2,8 +2,7 @@ package com.dot.baseandroid.utils
 
 import androidx.recyclerview.widget.DiffUtil
 import com.dot.baseandroid.menu.gallery.models.GalleryModel
-import com.dot.baseandroid.menu.list.models.PlaceModel
-import com.dot.baseandroid.menu.notification.models.NotificationModel
+import com.dot.baseandroid.menu.list.models.PostModel
 
 class AdapterCallback {
 
@@ -12,13 +11,13 @@ class AdapterCallback {
         /**
          * diff callback adapter list
          */
-        val DiffListCallback = object : DiffUtil.ItemCallback<PlaceModel>() {
-            override fun areContentsTheSame(oldItem: PlaceModel, newItem: PlaceModel): Boolean {
+        val DiffListCallback = object : DiffUtil.ItemCallback<PostModel>() {
+            override fun areContentsTheSame(oldItem: PostModel, newItem: PostModel): Boolean {
                 return oldItem == newItem
             }
 
-            override fun areItemsTheSame(oldItem: PlaceModel, newItem: PlaceModel): Boolean {
-                return oldItem.name == newItem.name
+            override fun areItemsTheSame(oldItem: PostModel, newItem: PostModel): Boolean {
+                return oldItem.id == newItem.id
             }
         }
 
@@ -31,22 +30,8 @@ class AdapterCallback {
             }
 
             override fun areItemsTheSame(oldItem: GalleryModel, newItem: GalleryModel): Boolean {
-                return oldItem.caption == newItem.caption
+                return oldItem.id == newItem.id
             }
-        }
-
-        /**
-         * diff callback adapter notification
-         */
-        val DiffNotificationCallback = object : DiffUtil.ItemCallback<NotificationModel>() {
-            override fun areItemsTheSame(oldItem: NotificationModel, newItem: NotificationModel): Boolean {
-                return oldItem.message == newItem.message
-            }
-
-            override fun areContentsTheSame(oldItem: NotificationModel, newItem: NotificationModel): Boolean {
-                return oldItem == newItem
-            }
-
         }
 
     }

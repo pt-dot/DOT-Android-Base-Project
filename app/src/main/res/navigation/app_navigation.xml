@@ -10,8 +10,8 @@
     <fragment
             android:id="@+id/fragmentOne"
             android:label="@string/one"
-            android:name="com.dot.baseandroid.menu.list.views.FragmentList"
-            tools:layout="@layout/fragment_list">
+            android:name="com.dot.baseandroid.menu.list.views.FragmentListPost"
+            tools:layout="@layout/fragment_list_post">
 
         <action android:id="@+id/action_to_one_detail"
                 app:destination="@id/fragmentOneDetail"
@@ -23,12 +23,12 @@
     <fragment
             android:id="@+id/fragmentOneDetail"
             android:label="@string/detail"
-            android:name="com.dot.baseandroid.menu.list.views.FragmentListDetail"
-            tools:layout="@layout/fragment_list_detail">
+            android:name="com.dot.baseandroid.menu.list.views.FragmentListPostDetail"
+            tools:layout="@layout/fragment_list_post_detail">
 
         <argument
-                android:name="data_detail_list_place"
-                app:argType="com.dot.baseandroid.menu.list.models.PlaceModel"
+                android:name="data_detail_list_post"
+                app:argType="com.dot.baseandroid.menu.list.models.PostModel"
                 app:nullable="true"
                 android:defaultValue="@null"/>
 
@@ -62,25 +62,25 @@
 
     </fragment>
 
-    <!-- fragment notification -->
+    <!-- fragment load_more -->
     <fragment
             android:id="@+id/fragmentThree"
             android:label="@string/three"
-            android:name="com.dot.baseandroid.menu.notification.views.FragmentNotification"
-            tools:layout="@layout/fragment_notification">
+            android:name="com.dot.baseandroid.menu.load_more.views.FragmentLoadMore"
+            tools:layout="@layout/fragment_load_more">
 
-        <action android:id="@+id/action_to_notification_detail"
+        <action android:id="@+id/action_to_post_paging_detail"
             app:destination="@+id/activityNotificationDetail"/>
 
     </fragment>
 
     <activity android:id="@+id/activityNotificationDetail"
-            android:name="com.dot.baseandroid.menu.notification.views.DetailNotificationActivity"
+            android:name="com.dot.baseandroid.menu.load_more.views.DetailPostPagingActivity"
             android:label="@string/detail"
-            tools:layout="@layout/activity_notification_detail">
+            tools:layout="@layout/activity_post_paging_detail">
 
-        <argument android:name="data_detail_notification"
-            app:argType="com.dot.baseandroid.menu.notification.models.NotificationModel" />
+        <argument android:name="data_detail_post_paging"
+            app:argType="com.dot.baseandroid.menu.list.models.PostModel" />
 
     </activity>
 

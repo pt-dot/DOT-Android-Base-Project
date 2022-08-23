@@ -36,7 +36,7 @@
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 app:navGraph="@navigation/app_navigation"
                 app:defaultNavHost="true"
-                tools:layout="@layout/fragment_list"/>
+                tools:layout="@layout/fragment_list_post"/>
 
         <!-- bottom menu -->
         <com.google.android.material.bottomnavigation.BottomNavigationView

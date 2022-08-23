@@ -39,9 +39,9 @@ class FragmentGallery: Fragment() {
     }
 
     private fun observeData() {
-        viewModel.liveDataListGallery.observe(viewLifecycleOwner, {
+        viewModel.liveDataListGallery.observe(viewLifecycleOwner) {
             adapter.submitList(it)
-        })
+        }
     }
 
     private fun setupSwipeRefresh() {

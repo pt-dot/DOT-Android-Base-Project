@@ -13,14 +13,14 @@
     </style>
 
     <style name="Title" parent="Widget.MaterialComponents.TextView">
-        <item name="android:shadowColor">@color/text_shadow</item>
-        <item name="android:shadowDx">@integer/global_text_shadow_dx</item>
-        <item name="android:shadowDy">@integer/global_text_shadow_dy</item>
-        <item name="android:shadowRadius">@integer/global_text_shadow_radius</item>
+        <item name="android:textSize">@dimen/_14ssp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/black</item>
     </style>
 
     <style name="Caption" parent="Widget.MaterialComponents.TextView">
         <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:textColor">@android:color/black</item>
     </style>
 
 </resources>

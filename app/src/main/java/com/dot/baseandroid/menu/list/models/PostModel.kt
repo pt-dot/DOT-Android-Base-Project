@@ -1,4 +1,4 @@
-package com.dot.baseandroid.menu.gallery.models
+package com.dot.baseandroid.menu.list.models
 
 import android.os.Parcelable
 import androidx.annotation.Keep
@@ -8,9 +8,9 @@ import kotlinx.android.parcel.Parcelize
 
 @Keep
 @Parcelize
-data class GalleryModel(
+data class PostModel(
+    @SerializedName("userId") @Expose val userId: Int,
     @SerializedName("id") @Expose val id: Int,
     @SerializedName("title") @Expose val title: String,
-    @SerializedName("url") @Expose val url: String,
-    @SerializedName("thumbnailUrl") @Expose val thumbnail: String
+    @SerializedName("body") @Expose val body: String,
 ): Parcelable

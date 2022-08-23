@@ -8,15 +8,14 @@
     - [Navigation](https://developer.android.com/guide/navigation/navigation-getting-started)
     - [Paging](https://developer.android.com/topic/libraries/architecture/paging/v3-overview)
 
-[Download APK](https://www.dropbox.com/s/nugo4ow5mmpk5cb)
+[Download APK](https://www.dropbox.com/s/p7msvhj2c6tr88o)
 
 #### Screenshot ####
-| ![](https://images2.imgbox.com/86/e1/SxLTCbpf_o.jpg) | ![](https://images2.imgbox.com/8d/e0/iddgIVoR_o.jpg) | ![](https://images2.imgbox.com/52/02/EuhMYl2o_o.jpg) | ![](https://images2.imgbox.com/d3/94/k7z3KXdm_o.jpg) |
+| List | Detail | Grid | Pagination |
 | :---: | :---: | :---: | :---: |
+| ![](https://images2.imgbox.com/f3/11/CDraKOdJ_o.png) | ![](https://images2.imgbox.com/8a/cd/kNU6sjQC_o.png) | ![](https://images2.imgbox.com/c7/08/62OkQYwD_o.png) | ![](https://images2.imgbox.com/06/03/F230TWrA_o.png) |
 
 #### List Libraries ####
-- [AndroidX](https://developer.android.com/jetpack/androidx/)
-- [Android Architecture Component](https://developer.android.com/topic/libraries/architecture/)
 - [Coil](https://github.com/coil-kt/coil/)
 - [OkHttp](https://github.com/square/okhttp)
 - [Retrofit](https://github.com/square/retrofit)
